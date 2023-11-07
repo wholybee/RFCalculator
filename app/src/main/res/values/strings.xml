@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RF Calculator</string>
+    <string name="title_activity_rfcalc">RF Calculator</string>
+    <string name="title_activity_dipole">Dipole Calculator</string>
+    <string name="title_activity_atsc">ATSC Frequency Table</string>
+    <string name="title_activity_vswr">VSWR Calculator</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_rfcalc">Decible(dB) Calculator</string>
+    <string name="action_dipolecalc">Dipole Calculator</string>
+    <string name="action_atsc">ATSC Freq. Chart</string>
+    <string name="action_vswr">VSWR Calculator</string>
+
+    <string name="dipole_freq">Frequency (kHz)</string>
+    <string name="dipole_vel">Velocity Factor</string>
+    <string name="dipole_length">Length of dipole</string>
+    <string name="dipole_half">Length of one side of dipole</string>
+    <string name="dipole_go">Calculate</string>
+
+    <string name="atsc_lower">FCC Lower Edge</string>
+    <string name="atsc_pilot">Pilot</string>
+    <string name="atsc_center">Center</string>
+    <string name="atsc_atscupper">8VSB Upper</string>
+    <string name="atsc_upper">FCC Upper Edge</string>
+    <string name="atsc_button">Channel</string>
+    <string name="atsc_atsclower">8VSB Lower</string>
+    <string name="atsc_lowershoulder">Lower Shoulder</string>
+    <string name="atsc_uppershoulder">Upper Shoulder</string>
+
+    <string name="vswr_VSWR">VSWR</string>
+    <string name="vswr_rl">Return Loss(dB)</string>
+    <string name="vswr_rc">Refl Coefficient</string>
+    <string name="vswr_find">Calculate</string>
+    <string name="fwd_pwr">Forward P. (W)</string>
+    <string name="rev_pwr">Reflected P. (W)</string>
+
+    <string name="error">Error</string>
+    <string name="_0_w">0 W</string>
+    <string name="dbm">- dbm</string>
+    <string name="dbw">- dbW</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="_plus">+</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_minus">-</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_equals">=</string>
+    <string name="_point">.</string>
+    <string name="_0">0</string>
+    <string name="c">C</string>
+    <string name="db">db</string>
+    <string name="_dbw">dbW</string>
+    <string name="_dbm">dbm</string>
+    <string name="dipole_calculator">Dipole Calculator</string>
+
+
+</resources>

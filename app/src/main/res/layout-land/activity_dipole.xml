@@ -1,0 +1,110 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="net.holybee.rfcalculator.DipoleActivity">
+
+    <EditText
+        android:id="@+id/editFreq"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:hint="7175"
+        android:imeOptions="actionNext"
+        android:inputType="numberDecimal"
+        android:nextFocusForward="@+id/editVel"
+        android:selectAllOnFocus="true"
+        android:text="7175" />
+
+    <EditText
+        android:id="@+id/editVel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editFreq"
+        android:layout_alignParentStart="true"
+        android:hint="0.95"
+        android:imeOptions="actionDone"
+        android:inputType="numberDecimal"
+        android:selectAllOnFocus="true"
+        android:text="0.95" />
+
+    <EditText
+        android:id="@+id/editLen"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editVel"
+        android:layout_alignParentStart="true"
+        android:enabled="false"
+        android:inputType="numberDecimal"
+        android:text="0"
+        android:textColor="@android:color/primary_text_light_nodisable" />
+
+    <EditText
+        android:id="@+id/editHalf"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editLen"
+        android:layout_alignParentStart="true"
+        android:enabled="false"
+        android:inputType="numberDecimal"
+        android:text="0"
+        android:textColor="@android:color/primary_text_light_nodisable" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dipole_freq"
+        android:id="@+id/lowerText"
+        android:layout_alignBottom="@+id/editFreq"
+        android:layout_toEndOf="@+id/editFreq"
+        android:layout_marginLeft="23dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dipole_vel"
+        android:id="@+id/pilotText"
+        android:layout_above="@+id/editLen"
+        android:layout_alignStart="@+id/lowerText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dipole_length"
+        android:id="@+id/centerText"
+        android:layout_above="@+id/editHalf"
+        android:layout_alignStart="@+id/pilotText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dipole_half"
+        android:id="@+id/atscupperText"
+        android:layout_alignBottom="@+id/editHalf"
+        android:layout_alignStart="@+id/centerText" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dipole_go"
+        android:id="@+id/root_rfButton"
+        android:layout_alignParentStart="false"
+        android:onClick="dipoleCalculateButtonClick"
+        android:layout_alignTop="@+id/lowerText"
+        android:layout_toRightOf="@+id/atscupperText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/dipole_calculator"
+        android:id="@+id/upperText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

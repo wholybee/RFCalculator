@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity" >
+    <item android:id="@+id/action_rfcalc"
+        android:title="@string/action_rfcalc"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/action_dipolecalc"
+        android:title="@string/action_dipolecalc"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/action_atsc"
+        android:title="@string/action_atsc"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/action_vswr"
+        android:title="@string/action_vswr"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+</menu>

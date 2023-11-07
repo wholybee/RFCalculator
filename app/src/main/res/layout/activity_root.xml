@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/root_rfButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:onClick="rootStartRF"
+        android:text="@string/action_rfcalc"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/root_dipoleButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:onClick="rootStartDipole"
+        android:text="@string/action_dipolecalc"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/root_atscButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:onClick="rootStartAtsc"
+        android:text="@string/action_atsc"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/root_vswrButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:onClick="rootStartVSWR"
+        android:text="@string/action_vswr"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+</LinearLayout>

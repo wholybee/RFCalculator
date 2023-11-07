@@ -1,0 +1,259 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:shrinkColumns="0"
+    android:stretchColumns="0"
+    tools:context="net.holybee.rfcalculator.DBcalcActivity">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <HorizontalScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp">
+
+                <TextView
+                    android:id="@+id/input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:hint="@string/action_rfcalc"
+                    android:scrollHorizontally="true"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/wattView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/_0_w"
+                android:textAlignment="textEnd"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/dbmView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/dbm"
+                android:textAlignment="textEnd"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/dbwView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="40dp"
+                android:text="@string/dbw"
+                android:textAlignment="textEnd"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/sevenButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_7" />
+
+                <Button
+                    android:id="@+id/eightButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_8" />
+
+                <Button
+                    android:id="@+id/nineButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_9" />
+
+                <Button
+                    android:id="@+id/addButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:includeFontPadding="false"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_plus" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/fourButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_4" />
+
+                <Button
+                    android:id="@+id/fiveButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_5" />
+
+                <Button
+                    android:id="@+id/sixButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_6" />
+
+                <Button
+                    android:id="@+id/subButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_minus" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/oneButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_1" />
+
+                <Button
+                    android:id="@+id/twoButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_2" />
+
+                <Button
+                    android:id="@+id/threeButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_3" />
+
+                <Button
+                    android:id="@+id/equalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_equals" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/decButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_point" />
+
+                <Button
+                    android:id="@+id/zerobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_0" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="80dp"
+                    android:layout_height="20dp" />
+
+                <Button
+                    android:id="@+id/clearButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/c" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/dbButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/db" />
+
+                <Button
+                    android:id="@+id/dbmButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_dbm" />
+
+                <Button
+                    android:id="@+id/dbWButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:onClick="dbCalcKeyPress"
+                    android:text="@string/_dbw" />
+
+            </TableRow>
+        </TableLayout>
+
+    </TableRow>
+</TableLayout>
+
+
