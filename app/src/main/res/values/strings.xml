@@ -59,6 +59,7 @@
     <string name="_dbw">dbW</string>
     <string name="_dbm">dbm</string>
     <string name="dipole_calculator">Dipole Calculator</string>
+    <string name="neg">+/-</string>
 
 
 </resources>

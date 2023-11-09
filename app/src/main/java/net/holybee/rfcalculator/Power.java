@@ -1,6 +1,10 @@
 package net.holybee.rfcalculator;
 
 import static java.lang.Math.round;
+
+
+import android.util.Log;
+
 import java.lang.Math;
 // import java.math.BigDecimal;
 
@@ -13,13 +17,18 @@ public Power (String[] args) {
 	
 	
 	try {
-		watt = wattValue(args[0]);	
-	
+		watt = wattValue(args[0]);
+
+		Log.e ("Power", String.valueOf(watt));
+
 	for (int n=1;n < args.length;n=n+2) {
-		
+		Log.e("Arg",args[n]);
+		Log.e("Arg+1",args[n+1]);
+
 		if ( (args[n].equals("+") && (args[n+1].endsWith("dbm")) )) {		
 			int l = args[n+1].length();
 			String s = args[n+1].substring(0,l-3);
+
 			float f = Float.parseFloat(s);
 		addDbm(f);
 		
@@ -36,6 +45,7 @@ public Power (String[] args) {
 		else if ( (args[n].equals("+") && (args[n+1].endsWith("dbW")) )) {		
 			int l = args[n+1].length();
 			String s = args[n+1].substring(0,l-3);
+			Log.e("Power dbW+",s);
 			float f = Float.parseFloat(s);
 		addDbW(f);
 		
@@ -95,7 +105,7 @@ public Power (String[] args) {
 			float dbw = Float.parseFloat(s);
 			return (Math.pow(10,dbw/10));
 		}
-		
+		Log.e("Power wattValue",arg);
 		return Float.parseFloat(arg);
 	}
 	

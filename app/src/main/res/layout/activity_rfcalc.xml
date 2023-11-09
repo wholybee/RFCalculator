@@ -24,7 +24,7 @@
                 android:id="@+id/input"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:hint="@string/action_rfcalc"
+                android:hint=""
                 android:scrollHorizontally="true"
                 android:textSize="34sp"
                 android:textStyle="bold" />
@@ -96,11 +96,13 @@
                 android:text="@string/_9" />
 
             <Button
-                android:id="@+id/addButton"
+                android:id="@+id/clearButton"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
+                android:backgroundTint="?attr/colorSecondary"
                 android:onClick="dbCalcKeyPress"
-                android:text="@string/_plus" />
+                android:text="@string/c" />
+
         </TableRow>
 
         <TableRow
@@ -132,11 +134,13 @@
                 android:text="@string/_6" />
 
             <Button
-                android:id="@+id/subButton"
+                android:id="@+id/addButton"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
+                android:backgroundTint="?attr/colorSecondary"
                 android:onClick="dbCalcKeyPress"
-                android:text="@string/_minus" />
+                android:text="@string/_plus" />
+
         </TableRow>
 
         <TableRow
@@ -168,17 +172,35 @@
                 android:text="@string/_3" />
 
             <Button
-                android:id="@+id/equalButton"
+                android:id="@+id/subButton"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
+                android:backgroundTint="?attr/colorSecondary"
                 android:onClick="dbCalcKeyPress"
-                android:text="@string/_equals" />
+                android:text="@string/_minus" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/negbutton"
+                android:layout_width="80dp"
+                android:layout_marginEnd="10dp"
+                android:layout_height="wrap_content"
+                android:onClick="dbCalcKeyPress"
+                android:text="@string/neg"
+                 />
+
+            <Button
+                android:id="@+id/zerobutton"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:onClick="dbCalcKeyPress"
+                android:text="@string/_0" />
 
             <Button
                 android:id="@+id/decButton"
@@ -190,24 +212,13 @@
                 android:text="@string/_point" />
 
             <Button
-                android:id="@+id/zerobutton"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:onClick="dbCalcKeyPress"
-                android:text="@string/_0" />
-
-            <View
-                android:id="@+id/view"
-                android:layout_width="80dp"
-                android:layout_height="20dp" />
-
-            <Button
-                android:id="@+id/clearButton"
+                android:id="@+id/equalButton"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
+                android:backgroundTint="?attr/colorSecondary"
                 android:onClick="dbCalcKeyPress"
-                android:text="@string/c" />
+                android:text="@string/_equals" />
+
         </TableRow>
 
         <TableRow
@@ -219,6 +230,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
+                android:backgroundTint="?attr/colorOutline"
                 android:onClick="dbCalcKeyPress"
                 android:text="@string/db" />
 
@@ -227,6 +239,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
+                android:backgroundTint="?attr/colorOutline"
                 android:onClick="dbCalcKeyPress"
                 android:text="@string/_dbm" />
 
@@ -235,6 +248,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
+                android:backgroundTint="?attr/colorOutline"
                 android:onClick="dbCalcKeyPress"
                 android:text="@string/_dbw" />
 

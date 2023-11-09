@@ -2,6 +2,7 @@ package net.holybee.rfcalculator;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,6 +53,8 @@ public class DBcalcActivity extends AppCompatActivity {
             builder.append(" + ");
         } else if (id == R.id.subButton) {
             builder.append(" - ");
+        } else if (id == R.id.negbutton) {
+            builder.append("-");
         } else if (id == R.id.dbButton) {
             builder.append("db");
         } else if (id == R.id.dbmButton) {
@@ -90,7 +93,9 @@ public class DBcalcActivity extends AppCompatActivity {
             TextView dbmview = findViewById(R.id.dbmView);
             TextView text = findViewById(R.id.input);
 
-
+            for (int i=0;i<strs.length;i++) {
+                Log.e("strs",strs[i]);
+            }
             Power p = new Power(strs);
             if (p.watt() >= 0) {
 
