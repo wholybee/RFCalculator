@@ -1,6 +1,7 @@
 package net.holybee.rfcalculator;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -9,22 +10,33 @@ import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 
 public class DBcalcActivity extends AppCompatActivity {
+    private DBcalcViewModel mViewModel;
 
-    private StringBuilder builder;
+    // private StringBuilder builder;
     private static final String TAG = DBcalcActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        builder = new StringBuilder();  // String Builder for creating expression
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rfcalc);
 
+        mViewModel = new ViewModelProvider(this).get(DBcalcViewModel.class);
+        TextView wattview = findViewById(R.id.wattView);
+        TextView dbwview = findViewById(R.id.dbwView);
+        TextView dbmview = findViewById(R.id.dbmView);
+        TextView text = findViewById(R.id.input);
+        wattview.setText(mViewModel.Watt);
+        dbwview.setText(mViewModel.dbW);
+        dbmview.setText(mViewModel.dbm);
+        text.setText(mViewModel.builder);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -50,43 +62,43 @@ public class DBcalcActivity extends AppCompatActivity {
 
         int id = view.getId();
         if (id == R.id.addButton) {
-            builder.append(" + ");
+            mViewModel.builder.append(" + ");
         } else if (id == R.id.subButton) {
-            builder.append(" - ");
+            mViewModel.builder.append(" - ");
         } else if (id == R.id.negbutton) {
-            builder.append("-");
+            mViewModel.builder.append("-");
         } else if (id == R.id.dbButton) {
-            builder.append("db");
+            mViewModel.builder.append("db");
         } else if (id == R.id.dbmButton) {
-            builder.append("dbm");
+            mViewModel.builder.append("dbm");
         } else if (id == R.id.dbWButton) {
-            builder.append("dbW");
+            mViewModel.builder.append("dbW");
         } else if (id == R.id.zerobutton) {
-            builder.append("0");
+            mViewModel.builder.append("0");
         } else if (id == R.id.oneButton) {
-            builder.append("1");
+            mViewModel.builder.append("1");
         } else if (id == R.id.twoButton) {
-            builder.append("2");
+            mViewModel.builder.append("2");
         } else if (id == R.id.threeButton) {
-            builder.append("3");
+            mViewModel.builder.append("3");
         } else if (id == R.id.fourButton) {
-            builder.append("4");
+            mViewModel.builder.append("4");
         } else if (id == R.id.fiveButton) {
-            builder.append("5");
+            mViewModel.builder.append("5");
         } else if (id == R.id.sixButton) {
-            builder.append("6");
+            mViewModel.builder.append("6");
         } else if (id == R.id.sevenButton) {
-            builder.append("7");
+            mViewModel.builder.append("7");
         } else if (id == R.id.eightButton) {
-            builder.append("8");
+            mViewModel.builder.append("8");
         } else if (id == R.id.nineButton) {
-            builder.append("9");
+            mViewModel.builder.append("9");
         } else if (id == R.id.decButton) {
-            builder.append(".");
+            mViewModel.builder.append(".");
         } else if (id == R.id.clearButton){
-            builder = new StringBuilder();
+            mViewModel.builder = new StringBuilder();
         } else if (id == R.id.equalButton) {
-            String str = builder.toString();
+            String str = mViewModel.builder.toString();
             String[] strs = str.split("\\s");
             TextView wattview = findViewById(R.id.wattView);
             TextView dbwview = findViewById(R.id.dbwView);
@@ -102,30 +114,33 @@ public class DBcalcActivity extends AppCompatActivity {
 
                 String watts = p.watt().toPlainString() + " W";
                 wattview.setText(watts);
+                mViewModel.Watt = watts;
 
                 String dbws = p.dbW().toPlainString() + " dbW";
                 dbwview.setText(dbws);
-
+                mViewModel.dbW = dbws;
+                
                 String dbms = p.dbm().toPlainString() + " dbm";
                 dbmview.setText(dbms);
+                mViewModel.dbm=dbms;
 
                 // clear builder
-                builder = new StringBuilder();
-                builder.append(p.watt().toPlainString());
+                mViewModel.builder = new StringBuilder();
+                mViewModel.builder.append(p.watt().toPlainString());
 
             } else {
                 wattview.setText("Error");
                 dbmview.setText(" ");
                 dbwview.setText(" ");
                 text.setText("Error in Entry");
-                builder = new StringBuilder();
+                mViewModel.builder = new StringBuilder();
                 return;
 
             }
         }
         TextView text = findViewById(R.id.input);
         HorizontalScrollView scrollView = findViewById(R.id.scrollView);
-        text.setText(builder.toString());
+        text.setText(mViewModel.builder.toString());
 
        scrollView.post(new Runnable() {
             @Override
