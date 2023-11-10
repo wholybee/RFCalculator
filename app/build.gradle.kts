@@ -29,6 +29,7 @@ android {
 }
 
 dependencies {
+    implementation("ch.obermuhlner:big-math:2.3.2")
 
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")

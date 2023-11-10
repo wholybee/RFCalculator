@@ -111,7 +111,7 @@ public class DBcalcActivity extends AppCompatActivity {
 
                 // clear builder
                 builder = new StringBuilder();
-                builder.append(p.watt());
+                builder.append((float) p.watt());
 
             } else {
                 wattview.setText("Error");

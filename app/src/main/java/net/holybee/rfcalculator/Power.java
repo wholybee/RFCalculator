@@ -4,13 +4,19 @@ import static java.lang.Math.round;
 
 
 import android.util.Log;
+import android.view.AttachedSurfaceControl;
 
 import java.lang.Math;
+import java.math.BigDecimal;
+import java.math.MathContext;
+
+import ch.obermuhlner.math.big.BigDecimalMath;
 // import java.math.BigDecimal;
 
 public class Power {
 
-double watt;
+BigDecimal watt;
+MathContext mContext = new MathContext(4);
 	
 public Power (String[] args) {
 
@@ -29,7 +35,7 @@ public Power (String[] args) {
 			int l = args[n+1].length();
 			String s = args[n+1].substring(0,l-3);
 
-			float f = Float.parseFloat(s);
+			BigDecimal f = new BigDecimal(s);
 		addDbm(f);
 		
 			}
@@ -37,7 +43,7 @@ public Power (String[] args) {
 		else if ( (args[n].equals("-") && (args[n+1].endsWith("dbm")) )) { 
 			int l = args[n+1].length();
 			String s = args[n+1].substring(0,l-3);
-			float f = Float.parseFloat(s);
+			BigDecimal f = new BigDecimal(s);
 		subDbm(f);
 		
 			}
@@ -46,7 +52,7 @@ public Power (String[] args) {
 			int l = args[n+1].length();
 			String s = args[n+1].substring(0,l-3);
 			Log.e("Power dbW+",s);
-			float f = Float.parseFloat(s);
+			BigDecimal f = new BigDecimal(s);
 		addDbW(f);
 		
 			}
@@ -54,30 +60,30 @@ public Power (String[] args) {
 		else if ( (args[n].equals("-") && (args[n+1].endsWith("dbW")) )) { 
 			int l = args[n+1].length();
 			String s = args[n+1].substring(0,l-3);
-			float f = Float.parseFloat(s);
+			BigDecimal f = new BigDecimal(s);
 		subDbW(f);
 		
 			}
 		
 		else if ( (args[n].equals("+") && !(args[n+1].endsWith("db")) )) { 
-					addWatt(Float.parseFloat(args[n+1]));
+					addWatt(new BigDecimal(args[n+1]));
 				}
 		
 		else if ( (args[n].equals("-") && !(args[n+1].endsWith("db")) )) { 
-					subWatt(Float.parseFloat(args[n+1]));
+					subWatt(new BigDecimal(args[n+1]));
 				}
 	
 		else if ( (args[n].equals("+") && (args[n+1].endsWith("db")) )) {		
 				int l = args[n+1].length();
 				String s = args[n+1].substring(0,l-2);
-				float f = Float.parseFloat(s);
+				BigDecimal f = new BigDecimal(s);
 			addDb(f);
 				}
 		
 		else if ( (args[n].equals("-") && (args[n+1].endsWith("db")) )) { 
 				int l = args[n+1].length();
 				String s = args[n+1].substring(0,l-2);
-				float f = Float.parseFloat(s);
+				BigDecimal f = new BigDecimal(s);
 			subDb(f);
 				}
 			
@@ -87,90 +93,106 @@ public Power (String[] args) {
 			
 
 	} catch (Throwable e) {
-		watt = -1;
+		watt = BigDecimal.valueOf(-1);
 
 	}
 
 }
-	public double wattValue (String arg) {
+	public BigDecimal wattValue (String arg) {
 		if (arg.endsWith("dbm")){		
 			int l = arg.length();
 			String s = arg.substring(0,l-3);
-			float dbm = Float.parseFloat(s);
-			return (Math.pow(10,dbm/10))/1000;
+			BigDecimal dbm = new BigDecimal(s);
+			return (BigDecimalMath.pow(BigDecimal.valueOf(10),dbm.divide(BigDecimal.valueOf(10),mContext),mContext)).divide(BigDecimal.valueOf(1000),mContext);
+			// return (Math.pow(10,dbm/10))/1000;
 		
 		} else if (arg.endsWith("dbW")) {
 			int l = arg.length();
 			String s = arg.substring(0,l-3);
-			float dbw = Float.parseFloat(s);
-			return (Math.pow(10,dbw/10));
+			BigDecimal dbw = new BigDecimal(s);
+			return BigDecimalMath.pow(BigDecimal.valueOf(10),dbw.divide(BigDecimal.valueOf(10),mContext),mContext);
+			// return (Math.pow(10,dbw/10));
 		}
 		Log.e("Power wattValue",arg);
-		return Float.parseFloat(arg);
+		return new BigDecimal(arg);
+		// return Float.parseFloat(arg);
 	}
 	
 
-	private void addDb(float db) {
-		double dbW = 10 * (Math.log10(this.watt));
-		dbW+=db;
-		this.watt = Math.pow(10,dbW/10);
+	private void addDb(BigDecimal db) {
+		BigDecimal dbW = BigDecimal.valueOf(10).multiply(BigDecimalMath.log10(this.watt,mContext));
+		// double dbW = 10 * (Math.log10(this.watt));
+		dbW = dbW.add(db);
+		// dbW+=db;
+		this.watt = BigDecimalMath.pow(BigDecimal.valueOf(10),dbW.divide(BigDecimal.valueOf(10),mContext),mContext);
+		// this.watt = Math.pow(10,dbW/10);
 		}
 	
-	private void subDb(float db) {
-		double dbW = 10 * (Math.log10(this.watt));
-		dbW-=db;
-		this.watt = Math.pow(10,dbW/10);
+	private void subDb(BigDecimal db) {
+		BigDecimal dbW = BigDecimal.valueOf(10).multiply(BigDecimalMath.log10(this.watt,mContext));
+		// double dbW = 10 * (Math.log10(this.watt));
+		dbW=dbW.subtract(db);
+		// this.watt = Math.pow(10,dbW/10);
+		this.watt = BigDecimalMath.pow(BigDecimal.valueOf(10),dbW.divide(BigDecimal.valueOf(10),mContext),mContext);
 		}
 	
-	private void addDbm(float dbm) {
-		double aWatt =  (Math.pow(10,dbm/10))/1000.0;
+	private void addDbm(BigDecimal dbm) {
+		BigDecimal aWatt = (BigDecimalMath.pow(BigDecimal.valueOf(10),dbm.divide(BigDecimal.valueOf(10),mContext),mContext)).divide(BigDecimal.valueOf(1000),mContext);
+		//double aWatt =  (Math.pow(10,dbm/10))/1000.0;
 		
-		this.watt += aWatt;
+		this.watt = this.watt.add(aWatt);
 		}
 	
-	private void subDbm(float dbm) {
-		double aWatt =  (Math.pow(10,dbm/10))/1000.0;
+	private void subDbm(BigDecimal dbm) {
+		BigDecimal aWatt = (BigDecimalMath.pow(BigDecimal.valueOf(10),dbm.divide(BigDecimal.valueOf(10),mContext),mContext)).divide(BigDecimal.valueOf(1000),mContext);
+	// double aWatt =  (Math.pow(10,dbm/10))/1000.0;
 		
-		this.watt -= aWatt;
+		this.watt = this.watt.subtract(aWatt);
 	}
 	
-	private void addDbW(float dbw) {
-		double aWatt =  (Math.pow(10,dbw/10));
+	private void addDbW(BigDecimal dbw) {
+		BigDecimal aWatt = (BigDecimalMath.pow(BigDecimal.valueOf(10),dbw.divide(BigDecimal.valueOf(10),mContext),mContext));
+		// double aWatt =  (Math.pow(10,dbw/10));
 		
-		this.watt += aWatt;
+		this.watt = this.watt.add(aWatt);
 	}
 	
-	private void subDbW(float dbw) {
-		double aWatt =  (Math.pow(10,dbw/10));
+	private void subDbW(BigDecimal dbw) {
+		BigDecimal aWatt = (BigDecimalMath.pow(BigDecimal.valueOf(10),dbw.divide(BigDecimal.valueOf(10),mContext),mContext));
+		// double aWatt =  (Math.pow(10,dbw/10));
 		
-		this.watt -= aWatt;
+		this.watt = this.watt.subtract(aWatt);
 		}
 	
 	
-	private void addWatt(double W) {
-		this.watt+=W;
+	private void addWatt(BigDecimal W) {
+		this.watt = this.watt.add(W);
 
 	}
 	
-	private void subWatt(double W) {
+	private void subWatt(BigDecimal W) {
 
-		this.watt-=W;
+		this.watt = this.watt.subtract(W);
 	}
 	
 	public double dbW() {
-		return 10 * (Math.log10(this.watt));
+		BigDecimal dbW = BigDecimal.valueOf(10).multiply(BigDecimalMath.log10(this.watt,mContext));
+		return dbW.floatValue();
+		// return 10 * (Math.log10(this.watt));
 
 	}
 	
 	public double dbm() {
-	    return 10 * (Math.log10(this.watt/.001));
+		BigDecimal dbm = BigDecimal.valueOf(10).multiply(BigDecimalMath.log10(this.watt.divide(BigDecimal.valueOf(0.001),mContext),mContext));
+	    return dbm.floatValue();
+		// return 10 * (Math.log10(this.watt/.001));
 
 	}
 	
 	public double watt() {
 
-
-		return watt;
+		watt = watt.round(mContext);
+		return watt.floatValue();
 	}
 	
 		
