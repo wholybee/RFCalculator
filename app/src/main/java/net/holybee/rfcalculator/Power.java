@@ -113,13 +113,13 @@ public Power (String[] args) {
 	private void addDb(float db) {
 		double dbW = 10 * (Math.log10(this.watt));
 		dbW+=db;
-		this.watt = round(Math.pow(10,dbW/10)*1000)/1000.0;
+		this.watt = Math.pow(10,dbW/10);
 		}
 	
 	private void subDb(float db) {
 		double dbW = 10 * (Math.log10(this.watt));
 		dbW-=db;
-		this.watt = round(Math.pow(10,dbW/10)*1000)/1000.0;
+		this.watt = Math.pow(10,dbW/10);
 		}
 	
 	private void addDbm(float dbm) {
@@ -153,22 +153,23 @@ public Power (String[] args) {
 	}
 	
 	private void subWatt(double W) {
+
 		this.watt-=W;
 	}
 	
 	public double dbW() {
-		return round(Math.log10(this.watt)*1000)/100.0;
+		return 10 * (Math.log10(this.watt));
 
 	}
 	
 	public double dbm() {
-	    return round(Math.log10(this.watt/.001)*1000)/100.0;
+	    return 10 * (Math.log10(this.watt/.001));
 
 	}
 	
 	public double watt() {
 
-	// return round(watt*1000+.5)/1000.0;
+
 		return watt;
 	}
 	
