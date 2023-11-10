@@ -97,21 +97,21 @@ public class DBcalcActivity extends AppCompatActivity {
                 Log.e("strs",strs[i]);
             }
             Power p = new Power(strs);
-            if (p.watt() >= 0) {
+            if (p.watt().floatValue() >= 0) {
 
 
-                String watts = (float) p.watt() + " W";
+                String watts = p.watt().toPlainString() + " W";
                 wattview.setText(watts);
 
-                String dbws = (float) p.dbW() + " dbW";
+                String dbws = p.dbW().toPlainString() + " dbW";
                 dbwview.setText(dbws);
 
-                String dbms = (float) p.dbm() + " dbm";
+                String dbms = p.dbm().toPlainString() + " dbm";
                 dbmview.setText(dbms);
 
                 // clear builder
                 builder = new StringBuilder();
-                builder.append((float) p.watt());
+                builder.append(p.watt().toPlainString());
 
             } else {
                 wattview.setText("Error");

@@ -16,7 +16,7 @@ import ch.obermuhlner.math.big.BigDecimalMath;
 public class Power {
 
 BigDecimal watt;
-MathContext mContext = new MathContext(4);
+MathContext mContext = new MathContext(5);
 	
 public Power (String[] args) {
 
@@ -175,24 +175,24 @@ public Power (String[] args) {
 		this.watt = this.watt.subtract(W);
 	}
 	
-	public double dbW() {
+	public BigDecimal dbW() {
 		BigDecimal dbW = BigDecimal.valueOf(10).multiply(BigDecimalMath.log10(this.watt,mContext));
-		return dbW.floatValue();
+		return dbW.round(mContext);
 		// return 10 * (Math.log10(this.watt));
 
 	}
 	
-	public double dbm() {
+	public BigDecimal dbm() {
 		BigDecimal dbm = BigDecimal.valueOf(10).multiply(BigDecimalMath.log10(this.watt.divide(BigDecimal.valueOf(0.001),mContext),mContext));
-	    return dbm.floatValue();
+	    return dbm.round(mContext);
 		// return 10 * (Math.log10(this.watt/.001));
 
 	}
 	
-	public double watt() {
+	public BigDecimal watt() {
 
-		watt = watt.round(mContext);
-		return watt.floatValue();
+
+		return watt;
 	}
 	
 		
