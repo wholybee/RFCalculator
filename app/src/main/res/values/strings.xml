@@ -60,6 +60,11 @@
     <string name="_dbm">dbm</string>
     <string name="dipole_calculator">Dipole Calculator</string>
     <string name="neg">+/-</string>
+    <string name="wavelength_calculator">Wavelength Calculator</string>
+    <string name="frequency">Frequency</string>
+    <string name="calculate">Calculate</string>
+    <string name="wavelength">Wavelength</string>
+    <string name="wavelength_calc">Wavelength Calc.</string>
 
 
 </resources>

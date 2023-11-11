@@ -5,7 +5,10 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.RFCalc" >
+        android:theme="@style/Theme.RFCalc">
+        <activity
+            android:name=".WavelengthActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -18,7 +21,7 @@
         <activity
             android:name=".DBcalcActivity"
             android:label="@string/title_activity_rfcalc"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="net.holybee.rfcalculator.MainActivity" />
@@ -26,7 +29,7 @@
         <activity
             android:name=".DipoleActivity"
             android:label="@string/title_activity_dipole"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="net.holybee.rfcalculator.MainActivity" />
@@ -34,7 +37,7 @@
         <activity
             android:name=".AtscActivity"
             android:label="@string/title_activity_atsc"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="net.holybee.rfcalculator.MainActivity" />
@@ -42,7 +45,7 @@
         <activity
             android:name=".VSWRActivity"
             android:label="@string/title_activity_vswr"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="net.holybee.rfcalculator.MainActivity" />

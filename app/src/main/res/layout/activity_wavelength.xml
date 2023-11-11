@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity = "top|center"
+    android:orientation="vertical"
+    tools:context=".WavelengthActivity">
+
+    <TextView
+        android:id="@+id/freq_titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/wavelength_calculator" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center|right">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/freq_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/frequency"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/freq_EditText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:imeOptions="actionDone"
+                android:selectAllOnFocus="true" />
+
+            <TextView
+                android:id="@+id/freq_unit_textView"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingEnd="5dp"
+                android:text="GHz" />
+
+            <Button
+                android:id="@+id/freq_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="clickFreqCalc"
+                android:text="@string/calculate" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/wave_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wavelength"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/wave_EditText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:imeOptions="actionDone"
+                android:selectAllOnFocus="true" />
+
+            <TextView
+                android:id="@+id/wave_unit_textView"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingEnd="5dp"
+                android:text="CM" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="clickWaveCalc"
+                android:text="@string/calculate" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingTop="32dp"
+                android:paddingEnd="48dp">
+
+                <RadioButton
+                    android:id="@+id/hz_radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:onClick="freqUnitChanged"
+                    android:text="Hz" />
+
+                <RadioButton
+                    android:id="@+id/kHz_radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="freqUnitChanged"
+                    android:text="kHz"
+                     />
+
+                <RadioButton
+                    android:id="@+id/MHz_radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="freqUnitChanged"
+                    android:text="MHz" />
+
+                <RadioButton
+                    android:id="@+id/GHz_radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="freqUnitChanged"
+                    android:text="GHz" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingTop="32dp"
+                android:paddingEnd="2dp">
+
+                <RadioButton
+                    android:id="@+id/mm_radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="wavelengthUnitChanged"
+                    android:text="mm" />
+
+                <RadioButton
+                    android:id="@+id/cm_radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="wavelengthUnitChanged"
+                    android:text="centimeter" />
+
+                <RadioButton
+                    android:id="@+id/meter_radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="wavelengthUnitChanged"
+                    android:text="meter" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

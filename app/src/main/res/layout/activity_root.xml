@@ -45,4 +45,14 @@
         android:textAllCaps="false"
         android:textSize="16sp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/root_wavelength"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:onClick="rootStartWavelength"
+        android:text="@string/wavelength_calc"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 </LinearLayout>

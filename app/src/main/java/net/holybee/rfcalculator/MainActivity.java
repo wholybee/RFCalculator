@@ -89,4 +89,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, VSWRActivity.class);
         startActivity(intent);
     }
+
+    public void rootStartWavelength(View v) {
+        Intent intent = new Intent(this, WavelengthActivity.class);
+        startActivity(intent);
+    }
 }
