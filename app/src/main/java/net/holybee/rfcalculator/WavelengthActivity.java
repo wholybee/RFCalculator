@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,21 +11,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.math.BigDecimal;
 
 public class WavelengthActivity extends AppCompatActivity {
     private final String TAG = "Wavelength";
     private WaveLengthViewModel mViewModel;
-    private RadioButton rbHZ;
-    private RadioButton rbMHZ;
-    private RadioButton rbKHZ;
-    private RadioButton rbGHZ;
-    private RadioButton rbMM;
-    private RadioButton rbCM;
-    private RadioButton rbM;
-    private TextView freqUnitText;
-    private TextView wavelengthUnitText;
+    private RadioButton rbHZ, rbMHZ, rbKHZ, rbGHZ, rbMM, rbCM, rbM, rbKM;
+
+    private TextView freqUnitText, wavelengthUnitText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +36,7 @@ public class WavelengthActivity extends AppCompatActivity {
         rbMM = findViewById(R.id.mm_radioButton);
         rbCM = findViewById(R.id.cm_radioButton);
         rbM = findViewById(R.id.meter_radioButton);
+        rbKM = findViewById(R.id.kilometer_radioButton);
         freqUnitText = findViewById(R.id.freq_unit_textView);
         wavelengthUnitText = findViewById(R.id.wave_unit_textView);
 
@@ -85,6 +80,11 @@ public class WavelengthActivity extends AppCompatActivity {
             mViewModel.frequencyUnit = WaveLengthViewModel.GIGAHERTZ;
             freqUnitText.setText("GHz");
         }
+        EditText waveEditText = findViewById(R.id.wave_EditText);
+
+        if (waveEditText.getText().toString().length() > 0) {
+            clickWaveCalc(view);
+        }
         Log.i(TAG, String.valueOf(mViewModel.frequencyUnit));
     }
 
@@ -102,20 +102,38 @@ public class WavelengthActivity extends AppCompatActivity {
             mViewModel.wavelengthUnit = WaveLengthViewModel.METER;
             wavelengthUnitText.setText("m");
         }
+        if (id == R.id.kilometer_radioButton) {
+            mViewModel.wavelengthUnit = WaveLengthViewModel.KILOMETER;
+            wavelengthUnitText.setText("km");
+        }
+        EditText freqEditText = findViewById(R.id.freq_EditText);
+        if (freqEditText.getText().toString().length() > 0 ) {
+            clickFreqCalc(view);
+        }
     }
 
     public void clickFreqCalc (View v) {
-        EditText freqEditText = findViewById(R.id.freq_EditText);
-        EditText waveEditText = findViewById(R.id.wave_EditText);
-        BigDecimal wavelength = mViewModel.calculateWavelength(new BigDecimal(freqEditText.getText().toString()));
-        waveEditText.setText(String.valueOf(wavelength));
+        try {
+            EditText freqEditText = findViewById(R.id.freq_EditText);
+            EditText waveEditText = findViewById(R.id.wave_EditText);
+            BigDecimal frequency = new BigDecimal(freqEditText.getText().toString());
+            BigDecimal wavelength = mViewModel.calculateWavelength(frequency);
+            waveEditText.setText(String.valueOf(wavelength));
+        } catch (Exception e) {
+            showToast("Invalid Number Entered.\n(Division by zero?)");
+        }
     }
 
     public void clickWaveCalc (View v) {
-        EditText freqEditText = findViewById(R.id.freq_EditText);
-        EditText waveEditText = findViewById(R.id.wave_EditText);
-        BigDecimal frequency = mViewModel.calculateFrequency(new BigDecimal(waveEditText.getText().toString()));
-        freqEditText.setText(String.valueOf(frequency));
+        try {
+            EditText freqEditText = findViewById(R.id.freq_EditText);
+            EditText waveEditText = findViewById(R.id.wave_EditText);
+            BigDecimal wavelength = new BigDecimal(waveEditText.getText().toString());
+            BigDecimal frequency = mViewModel.calculateFrequency(wavelength);
+            freqEditText.setText(String.valueOf(frequency));
+        } catch (Exception e) {
+            showToast("Invalid Number Entered.\n(Division by zero?)");
+        }
     }
 
     private void setRadioButtons () {
@@ -162,6 +180,13 @@ public class WavelengthActivity extends AppCompatActivity {
                 wavelengthUnitText.setText("m");
                 break;
             }
+            case WaveLengthViewModel.KILOMETER: {
+                rbKM.setChecked(true);
+                wavelengthUnitText.setText("km");
+            }
         }
+    }
+    private void showToast (String s) {
+        Toast.makeText(this,s, Toast.LENGTH_LONG).show();
     }
 }

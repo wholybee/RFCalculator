@@ -10,20 +10,12 @@
     android:orientation = "vertical"
     >
 
-    <TextView
-        android:id="@+id/vswr_titleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:text="@string/title_activity_vswr"
-
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center|right"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="32dp">
 
 
         <LinearLayout

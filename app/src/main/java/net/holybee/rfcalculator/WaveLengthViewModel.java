@@ -14,6 +14,7 @@ public class WaveLengthViewModel extends ViewModel {
     public static final int MILLIMETER = 0;
     public static final int CENTIMETER = 1;
     public static final int METER = 2;
+    public static final int KILOMETER = 3;
 
     public int frequencyUnit = HERTZ;
     public int wavelengthUnit = METER;
@@ -44,17 +45,17 @@ public class WaveLengthViewModel extends ViewModel {
             }
             case KILOHERTZ: {
                 frequencyHz = frequency
-                        .multiply(BigDecimal.valueOf(1000),mContext);
+                        .multiply(new BigDecimal("1000"),mContext);
                 break;
             }
             case MEGAHERTZ: {
                 frequencyHz = frequency
-                        .multiply(BigDecimal.valueOf(1000000),mContext);
+                        .multiply(new BigDecimal("1000000"),mContext);
                 break;
             }
             case GIGAHERTZ: {
                 frequencyHz = frequency
-                        .multiply(BigDecimal.valueOf( 1000000000),mContext);
+                        .multiply(new BigDecimal(" 1000000000"),mContext);
                 break;
             }
         }
@@ -64,16 +65,21 @@ public class WaveLengthViewModel extends ViewModel {
         switch (wavelengthUnit) {
             case MILLIMETER: {
                 wavelengthMeters = wavelength
-                        .divide(BigDecimal.valueOf(1000),mContext);
+                        .divide(new BigDecimal("1000"),mContext);
                 break;
             }
             case CENTIMETER: {
                 wavelengthMeters = wavelength
-                        .divide(BigDecimal.valueOf(100),mContext);
+                        .divide(new BigDecimal("100"),mContext);
                 break;
             }
             case METER: {
                 wavelengthMeters = wavelength;
+                break;
+            }
+            case KILOMETER: {
+                wavelengthMeters = wavelength
+                        .multiply(new BigDecimal("1000"));
                 break;
             }
         }
@@ -83,19 +89,19 @@ public class WaveLengthViewModel extends ViewModel {
         switch (frequencyUnit) {
             case KILOHERTZ: {
                 return frequencyHz
-                        .divide(BigDecimal.valueOf(1000),mContext)
+                        .divide(new BigDecimal("1000"),mContext)
                         .setScale(2,RoundingMode.HALF_UP);
 
             }
             case MEGAHERTZ: {
                 return frequencyHz
-                        .divide(BigDecimal.valueOf(1000000),mContext)
+                        .divide(new BigDecimal("1000000"),mContext)
                         .setScale(3,RoundingMode.HALF_UP);
 
             }
             case GIGAHERTZ: {
                 return frequencyHz
-                        .divide(BigDecimal.valueOf(1000000000),mContext)
+                        .divide(new BigDecimal("1000000000"),mContext)
                         .setScale(3,RoundingMode.HALF_UP);
 
             }
@@ -111,14 +117,20 @@ public class WaveLengthViewModel extends ViewModel {
         switch (wavelengthUnit) {
             case MILLIMETER: {
                 return wavelengthMeters
-                        .multiply(BigDecimal.valueOf(1000),mContext)
+                        .multiply(new BigDecimal("1000"),mContext)
                         .setScale(1,RoundingMode.HALF_UP);
 
             }
             case CENTIMETER: {
                 return wavelengthMeters
-                        .multiply(BigDecimal.valueOf(100),mContext)
+                        .multiply(new BigDecimal("100"),mContext)
                         .setScale(1,RoundingMode.HALF_UP);
+
+            }
+            case KILOMETER: {
+                return wavelengthMeters
+                        .divide(new BigDecimal("1000"),mContext)
+                        .setScale(3,RoundingMode.HALF_UP);
 
             }
             default: {

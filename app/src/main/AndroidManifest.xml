@@ -8,7 +8,13 @@
         android:theme="@style/Theme.RFCalc">
         <activity
             android:name=".WavelengthActivity"
-            android:exported="false" />
+            android:label="@string/wavelength_calculator"
+            android:parentActivityName=".MainActivity"
+            android:exported="false">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="net.holybee.rfcalculator.MainActivity" />
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
