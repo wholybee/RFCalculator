@@ -65,6 +65,11 @@ public class LosActivity extends AppCompatActivity {
 
     public void heightUnitChanged (View view) {
         int id = view.getId();
+        try {
+            mViewModel.convertHeightToMeters(new BigDecimal(heightEditText.getText().toString()));
+        } catch (Exception e) {
+            mViewModel.convertHeightToMeters(new BigDecimal("1"));
+        }
         if (id == R.id.los_meter_radioButton) {
             mViewModel.heightUnit = LosViewModel.METER;
             heightUnitText.setText("m");
@@ -72,6 +77,10 @@ public class LosActivity extends AppCompatActivity {
         if (id == R.id.los_feet_radioButton) {
             mViewModel.heightUnit = LosViewModel.FEET;
             heightUnitText.setText("ft");
+        }
+        if (losDistanceEditText.getText().length() > 0) {
+            BigDecimal height = mViewModel.convertHeight();
+            heightEditText.setText(String.valueOf(height));
         }
     }
 

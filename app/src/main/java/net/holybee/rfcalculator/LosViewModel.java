@@ -15,6 +15,8 @@ public class LosViewModel extends ViewModel {
     public int heightUnit = METER;
     public int distanceUnit = KILOMETER;
     private BigDecimal heightMeter = new BigDecimal("0");
+    private BigDecimal distanceKilo = new BigDecimal("0");
+    private BigDecimal radioDistanceKilo = new BigDecimal("0");
     private final BigDecimal losMultiplier = new BigDecimal("3.57");
     private final BigDecimal radioMultiplier = new BigDecimal("4.12");
     MathContext mContext = new MathContext(9);
@@ -26,17 +28,21 @@ public class LosViewModel extends ViewModel {
 
     public BigDecimal calculateLos (BigDecimal height) {
         convertHeightToMeters(height);
-        BigDecimal distanceKilo = sqrt(heightMeter).multiply(losMultiplier);
+        distanceKilo = sqrt(heightMeter).multiply(losMultiplier);
             return convertDistanceToUser(distanceKilo);
     }
 
     public BigDecimal calculateRadio (BigDecimal height) {
         convertHeightToMeters(height);
-        BigDecimal radioDistanceKilo = sqrt(heightMeter).multiply(radioMultiplier);
+        radioDistanceKilo = sqrt(heightMeter).multiply(radioMultiplier);
             return convertDistanceToUser(radioDistanceKilo);
     }
 
-    private void convertHeightToMeters (BigDecimal height) {
+    public BigDecimal convertHeight () {
+       return convertHeightToUser();
+    }
+
+    public void convertHeightToMeters (BigDecimal height) {
         switch (heightUnit) {
             case FEET: {
                 heightMeter = height.multiply(new BigDecimal("0.304799990"),mContext);
@@ -47,6 +53,35 @@ public class LosViewModel extends ViewModel {
                 break;
             }
         }
+    }
+
+    private void convertDistanceToKm (BigDecimal distance) {
+        switch (distanceUnit) {
+            case METER: {
+                distanceKilo = distance.divide(new BigDecimal("1000"),mContext);
+                break;
+            }
+            case KILOMETER: {
+                distanceKilo = distance;
+                break;
+            }
+            case MILE: {
+                distanceKilo = distance.multiply(new BigDecimal("1.609344"),mContext);
+            }
+            case NAUTICALMILE: {
+                distanceKilo = distance.multiply(new BigDecimal("1.852"),mContext);
+            }
+        }
+    }
+
+    private BigDecimal convertHeightToUser () {
+        if (heightUnit == FEET) {
+            return heightMeter
+                    .multiply(new BigDecimal("3.28084"), mContext)
+                    .setScale(2, RoundingMode.HALF_UP);
+        }
+        return heightMeter
+                .setScale(2, RoundingMode.HALF_UP);
     }
 
     private BigDecimal convertDistanceToUser (BigDecimal distance) {

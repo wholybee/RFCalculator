@@ -35,7 +35,7 @@ public class WaveLengthViewModel extends ViewModel {
 
     public BigDecimal calculateWavelength(BigDecimal frequency) {
         convertFrequencyToHz(frequency);
-        
+
         wavelengthMeters = c.divide(frequencyHz,mContext);
         return convertWavelengthToUser();
     }
