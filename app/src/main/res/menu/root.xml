@@ -27,5 +27,9 @@
         android:orderInCategory="100"
         app:showAsAction="never" />
 
+    <item android:id="@+id/action_los"
+        android:title="@string/line_of_sight_calculator"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
 
 </menu>

@@ -66,7 +66,18 @@ public class MainActivity extends AppCompatActivity {
             return true;
 
         }
+        if (id == R.id.action_wave) {
+            Intent intent = new Intent(this, WavelengthActivity.class);
+            startActivity(intent);
+            return true;
 
+        }
+        if (id == R.id.action_los) {
+            Intent intent = new Intent(this, LosActivity.class);
+            startActivity(intent);
+            return true;
+
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -92,6 +103,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void rootStartWavelength(View v) {
         Intent intent = new Intent(this, WavelengthActivity.class);
+        startActivity(intent);
+    }
+
+    public void rootStartLos(View v) {
+        Intent intent = new Intent(this, LosActivity.class);
         startActivity(intent);
     }
 }

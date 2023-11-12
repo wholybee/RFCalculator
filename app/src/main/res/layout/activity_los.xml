@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity = "top|center"
+    tools:context=".LosActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center|right"
+        android:paddingTop="24dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Antenna Height"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/losHeightEditText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+
+                android:ems="10"
+                android:imeOptions="actionDone"
+                android:inputType="number|numberDecimal"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/losHeightUnitTextView"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:text="m" />
+
+            <Button
+                android:id="@+id/losCalculateButton"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:onClick="clickCalculate"
+                android:text="@string/calculate" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LOS Distance"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/losDistanceEditText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/losDistanceUnitTextView"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:text="km" />
+
+            <Space
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Radio Horizon"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/losRadioEditText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/losRadioUnitTextView"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+
+                android:text="km" />
+
+            <Space
+                android:layout_width="110dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingTop="32dp"
+                android:paddingEnd="48dp">
+
+                <RadioButton
+                    android:id="@+id/los_meter_radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:onClick="heightUnitChanged"
+                    android:text="meter" />
+
+                <RadioButton
+                    android:id="@+id/los_feet_radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="heightUnitChanged"
+                    android:text="feet" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingTop="32dp"
+                android:paddingEnd="2dp">
+
+                <RadioButton
+                    android:id="@+id/los_distance_meter_radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="distanceUnitChanged"
+                    android:text="meter" />
+
+                <RadioButton
+                    android:id="@+id/los_distance_km_radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="distanceUnitChanged"
+                    android:text="kilometer" />
+
+                <RadioButton
+                    android:id="@+id/los_distance_mile_radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="distanceUnitChanged"
+                    android:text="mile" />
+
+                <RadioButton
+                    android:id="@+id/los_distance_nautical_mile_radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="distanceUnitChanged"
+                    android:text="nautical mile" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

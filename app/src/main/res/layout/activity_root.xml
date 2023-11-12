@@ -3,56 +3,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/root_rfButton"
-        android:layout_width="150dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="rootStartRF"
-        android:text="@string/action_rfcalc"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/root_dipoleButton"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:onClick="rootStartDipole"
-        android:text="@string/action_dipolecalc"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        <Button
+            android:id="@+id/root_rfButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:onClick="rootStartRF"
+            android:text="@string/action_rfcalc"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/root_atscButton"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:onClick="rootStartAtsc"
-        android:text="@string/action_atsc"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        <Button
+            android:id="@+id/root_dipoleButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:onClick="rootStartDipole"
+            android:text="@string/action_dipolecalc"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/root_vswrButton"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:onClick="rootStartVSWR"
-        android:text="@string/action_vswr"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        <Button
+            android:id="@+id/root_atscButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:onClick="rootStartAtsc"
+            android:text="@string/action_atsc"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/root_wavelength"
-        android:layout_width="150dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="rootStartWavelength"
-        android:text="@string/wavelength_calc"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/root_vswrButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:onClick="rootStartVSWR"
+            android:text="@string/action_vswr"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/root_wavelength"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:onClick="rootStartWavelength"
+            android:text="@string/wavelength_calc"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/root_los"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:onClick="rootStartLos"
+            android:text="@string/line_of_sight_calculator"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
 </LinearLayout>

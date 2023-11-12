@@ -22,6 +22,8 @@ public class WavelengthActivity extends AppCompatActivity {
 
     private TextView freqUnitText, wavelengthUnitText;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,6 +122,7 @@ public class WavelengthActivity extends AppCompatActivity {
             BigDecimal wavelength = mViewModel.calculateWavelength(frequency);
             waveEditText.setText(String.valueOf(wavelength));
         } catch (Exception e) {
+            Log.e(TAG,e.getMessage());
             showToast("Invalid Number Entered.\n(Division by zero?)");
         }
     }

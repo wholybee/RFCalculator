@@ -1,5 +1,7 @@
 package net.holybee.rfcalculator;
 
+import android.util.Log;
+
 import androidx.lifecycle.ViewModel;
 
 import java.math.BigDecimal;
@@ -23,7 +25,7 @@ public class WaveLengthViewModel extends ViewModel {
     private BigDecimal frequencyHz = new BigDecimal(0);
     private BigDecimal wavelengthMeters = new BigDecimal(0);
     private final BigDecimal c = new BigDecimal("299792458");
-    MathContext mContext = new MathContext(9);
+    MathContext mContext = new MathContext(12);
 
     public BigDecimal calculateFrequency(BigDecimal wavelength) {
         convertWavelengthToMeter(wavelength);
@@ -33,6 +35,7 @@ public class WaveLengthViewModel extends ViewModel {
 
     public BigDecimal calculateWavelength(BigDecimal frequency) {
         convertFrequencyToHz(frequency);
+        
         wavelengthMeters = c.divide(frequencyHz,mContext);
         return convertWavelengthToUser();
     }
@@ -54,8 +57,10 @@ public class WaveLengthViewModel extends ViewModel {
                 break;
             }
             case GIGAHERTZ: {
+
                 frequencyHz = frequency
-                        .multiply(new BigDecimal(" 1000000000"),mContext);
+                        .multiply(new BigDecimal("1000000000"),mContext);
+
                 break;
             }
         }
