@@ -134,6 +134,12 @@
                 android:paddingTop="32dp"
                 android:paddingEnd="48dp">
 
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Height" />
+
                 <RadioButton
                     android:id="@+id/los_meter_radioButton"
                     android:layout_width="match_parent"
@@ -156,6 +162,12 @@
                 android:layout_height="match_parent"
                 android:paddingTop="32dp"
                 android:paddingEnd="2dp">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Distance" />
 
                 <RadioButton
                     android:id="@+id/los_distance_meter_radioButton"

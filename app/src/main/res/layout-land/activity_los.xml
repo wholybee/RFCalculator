@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity = "top|center"
-    android:orientation="vertical"
-    tools:context=".WavelengthActivity">
+    android:gravity="top|center"
+    android:orientation="horizontal"
+    tools:context=".LosActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -21,77 +21,115 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/freq_textView"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/frequency"
+                android:text="Antenna Height"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <EditText
-                android:id="@+id/freq_EditText"
+                android:id="@+id/losHeightEditText"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+
                 android:ems="10"
                 android:imeOptions="actionDone"
-                android:inputType="numberDecimal"
-                android:selectAllOnFocus="true" />
+                android:inputType="number|numberDecimal"
+                android:text="" />
 
             <TextView
-                android:id="@+id/freq_unit_textView"
+                android:id="@+id/losHeightUnitTextView"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:paddingEnd="5dp"
-                android:text="GHz" />
+                android:text="m" />
 
             <Button
-                android:id="@+id/freq_button"
-                android:layout_width="wrap_content"
+                android:id="@+id/losCalculateButton"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="clickFreqCalc"
+                android:onClick="clickCalculate"
                 android:text="@string/calculate" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/wave_textView"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/wavelength"
+                android:text="LOS Distance"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <EditText
-                android:id="@+id/wave_EditText"
+                android:id="@+id/losDistanceEditText"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+
                 android:ems="10"
-                android:imeOptions="actionDone"
-                android:inputType="numberDecimal"
-                android:selectAllOnFocus="true" />
+                android:enabled="false"
+                android:inputType="text" />
 
             <TextView
-                android:id="@+id/wave_unit_textView"
+                android:id="@+id/losDistanceUnitTextView"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:paddingEnd="5dp"
-                android:text="CM" />
+                android:text="km" />
 
-            <Button
-                android:id="@+id/button2"
+            <Space
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+
+            <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="clickWaveCalc"
-                android:text="@string/calculate" />
+                android:text="Radio Horizon"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/losRadioEditText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/losRadioUnitTextView"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+
+                android:text="km" />
+
+            <Space
+                android:layout_width="110dp"
+                android:layout_height="wrap_content" />
+
         </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -109,36 +147,23 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Frequency" />
+                    android:gravity="center"
+                    android:text="Height" />
 
                 <RadioButton
-                    android:id="@+id/hz_radioButton"
+                    android:id="@+id/los_meter_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:onClick="freqUnitChanged"
-                    android:text="Hz" />
+                    android:onClick="heightUnitChanged"
+                    android:text="meter" />
 
                 <RadioButton
-                    android:id="@+id/kHz_radioButton"
+                    android:id="@+id/los_feet_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="freqUnitChanged"
-                    android:text="kHz" />
-
-                <RadioButton
-                    android:id="@+id/MHz_radioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="freqUnitChanged"
-                    android:text="MHz" />
-
-                <RadioButton
-                    android:id="@+id/GHz_radioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="freqUnitChanged"
-                    android:text="GHz" />
+                    android:onClick="heightUnitChanged"
+                    android:text="feet" />
 
             </RadioGroup>
 
@@ -152,38 +177,39 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Wavelength" />
+                    android:gravity="center"
+                    android:text="Distance" />
 
                 <RadioButton
-                    android:id="@+id/mm_radioButton"
+                    android:id="@+id/los_distance_meter_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="wavelengthUnitChanged"
-                    android:text="mm" />
-
-                <RadioButton
-                    android:id="@+id/cm_radioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="wavelengthUnitChanged"
-                    android:text="centimeter" />
-
-                <RadioButton
-                    android:id="@+id/meter_radioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="wavelengthUnitChanged"
+                    android:onClick="distanceUnitChanged"
                     android:text="meter" />
 
                 <RadioButton
-                    android:id="@+id/kilometer_radioButton"
+                    android:id="@+id/los_distance_km_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="wavelengthUnitChanged"
+                    android:onClick="distanceUnitChanged"
                     android:text="kilometer" />
+
+                <RadioButton
+                    android:id="@+id/los_distance_mile_radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="distanceUnitChanged"
+                    android:text="mile" />
+
+                <RadioButton
+                    android:id="@+id/los_distance_nautical_mile_radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="distanceUnitChanged"
+                    android:text="nautical mile" />
             </RadioGroup>
 
         </LinearLayout>
-
     </LinearLayout>
+
 </LinearLayout>
