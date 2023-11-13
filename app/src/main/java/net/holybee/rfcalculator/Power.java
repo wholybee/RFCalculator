@@ -4,14 +4,14 @@ import static java.lang.Math.round;
 
 
 import android.util.Log;
-import android.view.AttachedSurfaceControl;
 
-import java.lang.Math;
+
+
 import java.math.BigDecimal;
 import java.math.MathContext;
 
 import ch.obermuhlner.math.big.BigDecimalMath;
-// import java.math.BigDecimal;
+
 
 public class Power {
 

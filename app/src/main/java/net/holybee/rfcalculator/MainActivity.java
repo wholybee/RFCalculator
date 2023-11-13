@@ -78,6 +78,13 @@ public class MainActivity extends AppCompatActivity {
             return true;
 
         }
+        if (id == R.id.action_pathloss) {
+            Intent intent = new Intent(this, PathLossActivity.class);
+            startActivity(intent);
+            return true;
+
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -110,4 +117,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LosActivity.class);
         startActivity(intent);
     }
+
+    public void rootStartPathLoss(View v) {
+        Intent intent = new Intent(this, PathLossActivity.class);
+        startActivity(intent);
+    }
+
 }

@@ -1,14 +1,12 @@
 package net.holybee.rfcalculator;
 
-import android.util.Log;
-
 import androidx.lifecycle.ViewModel;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-public class WaveLengthViewModel extends ViewModel {
+public class WavelengthViewModel extends ViewModel {
     public static final int HERTZ = 0;
     public static final int KILOHERTZ = 1;
     public static final int MEGAHERTZ = 2;

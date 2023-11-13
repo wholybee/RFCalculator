@@ -66,6 +66,11 @@
     <string name="wavelength">Wavelength</string>
     <string name="wavelength_calc">Wavelength Calc.</string>
     <string name="line_of_sight_calculator">Line of Sight Calculator</string>
+    <string name="free_space_path_loss_calculator">Free Space Path Loss</string>
+    <string name="distance">Distance</string>
+    <string name="los_distance">LOS Distance</string>
+    <string name="antenna_height">Antenna Height</string>
+    <string name="path_loss">Path Loss</string>
 
 
 </resources>

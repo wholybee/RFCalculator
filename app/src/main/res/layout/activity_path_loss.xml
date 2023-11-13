@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity = "top|center"
-    tools:context=".LosActivity">
+    android:gravity="top|center"
+    tools:context=".PathLossActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center|right"
-        android:paddingTop="24dp">
+        android:paddingTop="24dp"        >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -24,58 +24,57 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/antenna_height"
+                android:text="@string/frequency"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <EditText
-                android:id="@+id/losHeightEditText"
+                android:id="@+id/fsplFrequencyExitText"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-
+                android:layout_weight="1"
                 android:ems="10"
                 android:imeOptions="actionDone"
                 android:inputType="number|numberDecimal"
                 android:text="" />
 
             <TextView
-                android:id="@+id/losHeightUnitTextView"
+                android:id="@+id/fsplFrequencyUnitTextView"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
                 android:paddingEnd="5dp"
-                android:text="m" />
+                android:text="kHz" />
 
             <Button
-                android:id="@+id/losCalculateButton"
+                android:id="@+id/fsplCalculateButton"
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
-                android:onClick="clickCalculate"
-                android:text="@string/calculate" />
+                android:onClick="fsplClickCalculate"
+                android:text="Calculate" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:orientation="horizontal">
 
             <TextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/los_distance"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/distance" />
 
             <EditText
-                android:id="@+id/losDistanceEditText"
+                android:id="@+id/fsplDistanceEditText"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
 
                 android:ems="10"
-                android:enabled="false"
-                android:inputType="text" />
+                android:inputType="text"
+                android:text="" />
 
             <TextView
-                android:id="@+id/losDistanceUnitTextView"
+                android:id="@+id/fsplDistanceUnitTextView"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
                 android:paddingEnd="5dp"
@@ -90,47 +89,88 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:orientation="horizontal">
 
             <TextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Radio Horizon"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/path_loss" />
 
             <EditText
-                android:id="@+id/losRadioEditText"
+                android:id="@+id/fspsPathLossEditText"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
 
                 android:ems="10"
-                android:enabled="false"
-                android:inputType="text" />
+                android:inputType="text"
+                android:enabled="false" />
 
             <TextView
-                android:id="@+id/losRadioUnitTextView"
+                android:id="@+id/fsplPathLossUnitTextView"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
                 android:paddingEnd="5dp"
-
-                android:text="km" />
+                android:text="dB" />
 
             <Space
                 android:layout_width="110dp"
-                android:layout_height="wrap_content" />
-
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal">
 
             <RadioGroup
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="32dp"
+                android:paddingEnd="48dp"
+                >
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frequency" />
+
+                <RadioButton
+                    android:id="@+id/fsplHzRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="fsplFrequencyUnitChanged"
+                    android:text="Hz" />
+
+                <RadioButton
+                    android:id="@+id/fsplkHzRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="fsplFrequencyUnitChanged"
+                    android:text="kHz" />
+
+                <RadioButton
+                    android:id="@+id/fsplMHzRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="fsplFrequencyUnitChanged"
+                    android:text="MHz" />
+
+                <RadioButton
+                    android:id="@+id/fsplGHzRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="fsplFrequencyUnitChanged"
+                    android:text="GHz" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:paddingTop="32dp"
                 android:paddingEnd="48dp">
 
@@ -138,70 +178,36 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Height" />
+                    android:text="@string/distance" />
 
                 <RadioButton
-                    android:id="@+id/los_meter_radioButton"
+                    android:id="@+id/fsplMeterRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:onClick="heightUnitChanged"
+                    android:onClick="fsplDistanceUnitChanged"
                     android:text="meter" />
 
                 <RadioButton
-                    android:id="@+id/los_feet_radioButton"
+                    android:id="@+id/fsplKmRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="heightUnitChanged"
-                    android:text="feet" />
-
-            </RadioGroup>
-
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:paddingTop="32dp"
-                android:paddingEnd="2dp">
-
-                <TextView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Distance" />
-
-                <RadioButton
-                    android:id="@+id/los_distance_meter_radioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="distanceUnitChanged"
-                    android:text="meter" />
-
-                <RadioButton
-                    android:id="@+id/los_distance_km_radioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="distanceUnitChanged"
+                    android:onClick="fsplDistanceUnitChanged"
                     android:text="kilometer" />
 
                 <RadioButton
-                    android:id="@+id/los_distance_mile_radioButton"
+                    android:id="@+id/fsplMileRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="distanceUnitChanged"
+                    android:onClick="fsplDistanceUnitChanged"
                     android:text="mile" />
 
                 <RadioButton
-                    android:id="@+id/los_distance_nautical_mile_radioButton"
+                    android:id="@+id/fsplNauticalMileRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="distanceUnitChanged"
+                    android:onClick="fsplDistanceUnitChanged"
                     android:text="nautical mile" />
             </RadioGroup>
-
         </LinearLayout>
-
-
-
     </LinearLayout>
-
 </LinearLayout>

@@ -78,7 +78,7 @@ public class LosActivity extends AppCompatActivity {
             mViewModel.heightUnit = LosViewModel.FEET;
             heightUnitText.setText("ft");
         }
-        if (losDistanceEditText.getText().length() > 0) {
+        if (losDistanceEditText.getText().toString().length() > 0) {
             BigDecimal height = mViewModel.convertHeight();
             heightEditText.setText(String.valueOf(height));
         }
@@ -107,7 +107,7 @@ public class LosActivity extends AppCompatActivity {
             losUnitText.setText("nm");
             radioUnitText.setText("nm");
         }
-        if (heightEditText.toString().length() > 0) {
+        if (heightEditText.getText().toString().length() > 0) {
             clickCalculate(view);
         }
     }
