@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +16,7 @@ import android.widget.Toast;
 import java.math.BigDecimal;
 
 public class LosActivity extends AppCompatActivity {
-
+    private Units units = new Units();
     private LosViewModel mViewModel;
     private RadioButton rbHeightFt, rbHeightM, rbDistM, rbDistKm, rbDistMile, rbDistNM;
     private TextView heightUnitText, radioUnitText, losUnitText;
@@ -65,21 +66,23 @@ public class LosActivity extends AppCompatActivity {
 
     public void heightUnitChanged (View view) {
         int id = view.getId();
+        BigDecimal oldHeightMeters;
         try {
-            mViewModel.convertHeightToMeters(new BigDecimal(heightEditText.getText().toString()));
+            oldHeightMeters = units.convertLengthToMeter(new BigDecimal(heightEditText.getText().toString()),mViewModel.heightUnit);
         } catch (Exception e) {
-            mViewModel.convertHeightToMeters(new BigDecimal("1"));
+            oldHeightMeters = new BigDecimal("0");
         }
+        Log.e("LOS","old height "+oldHeightMeters.toPlainString());
         if (id == R.id.los_meter_radioButton) {
-            mViewModel.heightUnit = LosViewModel.METER;
+            mViewModel.heightUnit = Units.METER;
             heightUnitText.setText("m");
         }
         if (id == R.id.los_feet_radioButton) {
-            mViewModel.heightUnit = LosViewModel.FEET;
+            mViewModel.heightUnit = Units.FEET;
             heightUnitText.setText("ft");
         }
         if (losDistanceEditText.getText().toString().length() > 0) {
-            BigDecimal height = mViewModel.convertHeight();
+            BigDecimal height = units.convertLengthToUser(oldHeightMeters,mViewModel.heightUnit);
             heightEditText.setText(String.valueOf(height));
         }
     }
@@ -87,23 +90,23 @@ public class LosActivity extends AppCompatActivity {
     public void distanceUnitChanged (View view) {
         int id = view.getId();
         if (id == R.id.los_distance_meter_radioButton){
-            mViewModel.distanceUnit = LosViewModel.METER;
+            mViewModel.distanceUnit = Units.METER;
             losUnitText.setText("m");
             radioUnitText.setText("m");
 
         }
         if (id == R.id.los_distance_km_radioButton) {
-            mViewModel.distanceUnit = LosViewModel.KILOMETER;
+            mViewModel.distanceUnit = Units.KILOMETER;
             losUnitText.setText("km");
             radioUnitText.setText("km");
         }
         if (id == R.id.los_distance_mile_radioButton) {
-            mViewModel.distanceUnit = LosViewModel.MILE;
+            mViewModel.distanceUnit = Units.MILE;
             losUnitText.setText("mi");
             radioUnitText.setText("mi");
         }
         if (id == R.id.los_distance_nautical_mile_radioButton) {
-            mViewModel.distanceUnit = LosViewModel.NAUTICALMILE;
+            mViewModel.distanceUnit = Units.NAUTICALMILE;
             losUnitText.setText("nm");
             radioUnitText.setText("nm");
         }
@@ -128,25 +131,25 @@ public class LosActivity extends AppCompatActivity {
 
     private void setRadioButtons() {
         switch (mViewModel.distanceUnit) {
-            case LosViewModel.METER: {
+            case Units.METER: {
                 rbDistM.setChecked(true);
                 radioUnitText.setText("m");
                 losUnitText.setText("m");
                 break;
             }
-            case LosViewModel.KILOMETER: {
+            case Units.KILOMETER: {
                 rbDistKm.setChecked(true);
                 radioUnitText.setText("km");
                 losUnitText.setText("km");
                 break;
             }
-            case LosViewModel.MILE: {
+            case Units.MILE: {
                 rbDistMile.setChecked(true);
                 radioUnitText.setText("mi");
                 losUnitText.setText("mi");
                 break;
             }
-            case LosViewModel.NAUTICALMILE: {
+            case Units.NAUTICALMILE: {
                 rbDistNM.setChecked(true);
                 radioUnitText.setText("nm");
                 losUnitText.setText("nm");
@@ -154,12 +157,12 @@ public class LosActivity extends AppCompatActivity {
             }
         }
         switch (mViewModel.heightUnit) {
-            case LosViewModel.METER: {
+            case Units.METER: {
                 rbHeightM.setChecked(true);
                 heightUnitText.setText("m");
                 break;
             }
-            case LosViewModel.FEET: {
+            case Units.FEET: {
                 rbHeightFt.setChecked(true);
                 heightUnitText.setText("ft");
             }

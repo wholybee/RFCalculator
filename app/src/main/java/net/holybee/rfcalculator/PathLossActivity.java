@@ -66,22 +66,22 @@ public class PathLossActivity extends AppCompatActivity {
     public void fsplDistanceUnitChanged (View view) {
         int id = view.getId();
         if (id == R.id.fsplMeterRadioButton){
-            mViewModel.distanceUnit = PathLossViewModel.METER;
+            mViewModel.distanceUnit = Units.METER;
             distanceUnitText.setText("m");
 
         }
         if (id == R.id.fsplKmRadioButton) {
-            mViewModel.distanceUnit = PathLossViewModel.KILOMETER;
+            mViewModel.distanceUnit = Units.KILOMETER;
             distanceUnitText.setText("km");
 
         }
         if (id == R.id.fsplMileRadioButton) {
-            mViewModel.distanceUnit = PathLossViewModel.MILE;
+            mViewModel.distanceUnit = Units.MILE;
             distanceUnitText.setText("mi");
 
         }
         if (id == R.id.fsplNauticalMileRadioButton) {
-            mViewModel.distanceUnit = PathLossViewModel.NAUTICALMILE;
+            mViewModel.distanceUnit = Units.NAUTICALMILE;
             distanceUnitText.setText("nm");
 
         }
@@ -94,22 +94,22 @@ public class PathLossActivity extends AppCompatActivity {
         int id = view.getId();
         Log.e("fspl","Frequency changed");
         if (id == R.id.fsplHzRadioButton) {
-            mViewModel.frequencyUnit = PathLossViewModel.HERTZ;
+            mViewModel.frequencyUnit = Units.HERTZ;
             frequencyUnitText.setText("Hz");
         }
 
         if (id == R.id.fsplkHzRadioButton) {
-            mViewModel.frequencyUnit = PathLossViewModel.KILOHERTZ;
+            mViewModel.frequencyUnit = Units.KILOHERTZ;
             frequencyUnitText.setText("kHz");
         }
 
         if (id == R.id.fsplMHzRadioButton) {
-            mViewModel.frequencyUnit = PathLossViewModel.MEGAHERTZ;
+            mViewModel.frequencyUnit = Units.MEGAHERTZ;
             frequencyUnitText.setText("MHz");
         }
 
         if (id == R.id.fsplGHzRadioButton) {
-            mViewModel.frequencyUnit = PathLossViewModel.GIGAHERTZ;
+            mViewModel.frequencyUnit = Units.GIGAHERTZ;
             frequencyUnitText.setText("GHz");
         }
         if (distanceEditText.getText().toString().length() > 0 && frequencyEditText.getText().toString().length() > 0) {
@@ -131,23 +131,23 @@ public class PathLossActivity extends AppCompatActivity {
 
     private void setRadioButtons() {
         switch (mViewModel.frequencyUnit) {
-            case PathLossViewModel.HERTZ: {
+            case Units.HERTZ: {
                 rbHz.setChecked(true);
                 frequencyUnitText.setText("Hz");
                 break;
             }
-            case PathLossViewModel.KILOHERTZ: {
+            case Units.KILOHERTZ: {
                 rbKHz.setChecked(true);
                 frequencyUnitText.setText("kHz");
                 break;
 
             }
-            case PathLossViewModel.MEGAHERTZ: {
+            case Units.MEGAHERTZ: {
                 rbMHz.setChecked(true);
                 frequencyUnitText.setText("MHz");
                 break;
             }
-            case PathLossViewModel.GIGAHERTZ: {
+            case Units.GIGAHERTZ: {
                 rbGHz.setChecked(true);
                 frequencyUnitText.setText("GHz");
                 break;
@@ -155,13 +155,13 @@ public class PathLossActivity extends AppCompatActivity {
         }
 
         switch (mViewModel.distanceUnit) {
-            case PathLossViewModel.METER: {
+            case Units.METER: {
                 rbDistM.setChecked(true);
                 distanceUnitText.setText("m");
                 break;
             }
 
-            case PathLossViewModel.KILOMETER: {
+            case Units.KILOMETER: {
 
                 rbDistKm.setChecked(true);
                 distanceUnitText.setText("km");
@@ -169,13 +169,13 @@ public class PathLossActivity extends AppCompatActivity {
 
             }
 
-            case PathLossViewModel.MILE: {
+            case Units.MILE: {
                 rbDistMile.setChecked(true);
                 distanceUnitText.setText("mi");
                 break;
             }
 
-            case PathLossViewModel.NAUTICALMILE: {
+            case Units.NAUTICALMILE: {
                 rbDistNM.setChecked(true);
                 distanceUnitText.setText("nm");
                 break;

@@ -67,19 +67,19 @@ public class WavelengthActivity extends AppCompatActivity {
     public void freqUnitChanged (View view) {
         int id = view.getId();
         if (id == R.id.hz_radioButton) {
-            mViewModel.frequencyUnit = WavelengthViewModel.HERTZ;
+            mViewModel.frequencyUnit = Units.HERTZ;
             freqUnitText.setText("Hz");
         }
         if (id == R.id.kHz_radioButton) {
-            mViewModel.frequencyUnit = WavelengthViewModel.KILOHERTZ;
+            mViewModel.frequencyUnit = Units.KILOHERTZ;
             freqUnitText.setText("kHz");
         }
         if (id == R.id.MHz_radioButton) {
-            mViewModel.frequencyUnit = WavelengthViewModel.MEGAHERTZ;
+            mViewModel.frequencyUnit = Units.MEGAHERTZ;
             freqUnitText.setText("MHz");
         }
         if (id == R.id.GHz_radioButton) {
-            mViewModel.frequencyUnit = WavelengthViewModel.GIGAHERTZ;
+            mViewModel.frequencyUnit = Units.GIGAHERTZ;
             freqUnitText.setText("GHz");
         }
         EditText waveEditText = findViewById(R.id.wave_EditText);
@@ -93,19 +93,19 @@ public class WavelengthActivity extends AppCompatActivity {
     public void wavelengthUnitChanged (View view) {
         int id = view.getId();
         if (id == R.id.mm_radioButton) {
-            mViewModel.wavelengthUnit = WavelengthViewModel.MILLIMETER;
+            mViewModel.wavelengthUnit = Units.MILLIMETER;
             wavelengthUnitText.setText("mm");
         }
         if (id == R.id.cm_radioButton) {
-            mViewModel.wavelengthUnit = WavelengthViewModel.CENTIMETER;
+            mViewModel.wavelengthUnit = Units.CENTIMETER;
             wavelengthUnitText.setText("cm");
         }
         if (id == R.id.meter_radioButton) {
-            mViewModel.wavelengthUnit = WavelengthViewModel.METER;
+            mViewModel.wavelengthUnit = Units.METER;
             wavelengthUnitText.setText("m");
         }
         if (id == R.id.kilometer_radioButton) {
-            mViewModel.wavelengthUnit = WavelengthViewModel.KILOMETER;
+            mViewModel.wavelengthUnit = Units.KILOMETER;
             wavelengthUnitText.setText("km");
         }
         EditText freqEditText = findViewById(R.id.freq_EditText);
@@ -142,25 +142,25 @@ public class WavelengthActivity extends AppCompatActivity {
     private void setRadioButtons () {
         Log.i(TAG, String.valueOf(mViewModel.frequencyUnit));
         switch (mViewModel.frequencyUnit) {
-            case WavelengthViewModel.HERTZ: {
+            case Units.HERTZ: {
                 rbHZ.setChecked(true);
                 freqUnitText.setText("Hz");
                 Log.d(TAG,"hertz");
                 break;
             }
-            case WavelengthViewModel.KILOHERTZ: {
+            case Units.KILOHERTZ: {
                 rbKHZ.setChecked(true);
                 freqUnitText.setText("kHz");
                 Log.d(TAG,"kilo");
                 break;
             }
-            case WavelengthViewModel.MEGAHERTZ: {
+            case Units.MEGAHERTZ: {
                 rbMHZ.setChecked(true);
                 freqUnitText.setText("MHz");
                 Log.d(TAG,"mega");
                 break;
             }
-            case WavelengthViewModel.GIGAHERTZ: {
+            case Units.GIGAHERTZ: {
                 rbGHZ.setChecked(true);
                 freqUnitText.setText("GHz");
                 Log.d(TAG,"giga");
@@ -168,22 +168,22 @@ public class WavelengthActivity extends AppCompatActivity {
             }
         }
         switch (mViewModel.wavelengthUnit) {
-            case WavelengthViewModel.MILLIMETER: {
+            case Units.MILLIMETER: {
                 rbMM.setChecked(true);
                 wavelengthUnitText.setText("mm");
                 break;
             }
-            case WavelengthViewModel.CENTIMETER: {
+            case Units.CENTIMETER: {
                 rbCM.setChecked(true);
                 wavelengthUnitText.setText("cm");
                 break;
             }
-            case WavelengthViewModel.METER: {
+            case Units.METER: {
                 rbM.setChecked(true);
                 wavelengthUnitText.setText("m");
                 break;
             }
-            case WavelengthViewModel.KILOMETER: {
+            case Units.KILOMETER: {
                 rbKM.setChecked(true);
                 wavelengthUnitText.setText("km");
             }
