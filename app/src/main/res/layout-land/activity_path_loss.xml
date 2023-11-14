@@ -8,122 +8,132 @@
     tools:context=".PathLossActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center|end"
-        android:paddingTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
         tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:gravity="center|right"
+            android:orientation="vertical"
+            android:paddingTop="24dp"
+            tools:ignore="RtlHardcoded">
 
-            <TextView
-
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/frequency"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/fsplFrequencyExitText"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:imeOptions="actionDone"
-                android:inputType="number|numberDecimal"
-                android:text=""
-                tools:ignore="Autofill,InefficientWeight,LabelFor" />
+                <TextView
 
-            <TextView
-                android:id="@+id/fsplFrequencyUnitTextView"
-                android:layout_width="45dp"
-                android:layout_height="wrap_content"
-                android:paddingEnd="5dp"
-                android:text="@string/units_khz"
-                tools:ignore="RtlSymmetry" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frequency"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <Button
-                android:id="@+id/fsplCalculateButton"
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:onClick="fsplClickCalculate"
-                android:text="@string/fspl_calculate" />
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/fsplFrequencyExitText"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:imeOptions="actionDone"
+                    android:inputType="number|numberDecimal"
+                    android:text=""
+                    tools:ignore="Autofill,InefficientWeight,LabelFor" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/fsplFrequencyUnitTextView"
+                    android:layout_width="45dp"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="5dp"
+                    android:text="@string/units_khz"
+                    tools:ignore="RtlSymmetry" />
 
-            <TextView
+                <Button
+                    android:id="@+id/fsplCalculateButton"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="fsplClickCalculate"
+                    android:text="@string/calculate" />
+            </LinearLayout>
 
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/distance" />
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/fsplDistanceEditText"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
+                <TextView
 
-                android:ems="10"
-                android:inputType="number|numberDecimal"
-                android:text=""
-                tools:ignore="Autofill,LabelFor" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/distance"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <TextView
-                android:id="@+id/fsplDistanceUnitTextView"
-                android:layout_width="45dp"
-                android:layout_height="wrap_content"
-                android:paddingEnd="5dp"
-                android:text="@string/units_km"
-                tools:ignore="RtlSymmetry" />
+                <EditText
+                    android:id="@+id/fsplDistanceEditText"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
 
-            <Space
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                tools:ignore="InefficientWeight" />
-        </LinearLayout>
+                    android:ems="10"
+                    android:inputType="number|numberDecimal"
+                    android:text=""
+                    tools:ignore="Autofill,LabelFor" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/fsplDistanceUnitTextView"
+                    android:layout_width="45dp"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="5dp"
+                    android:text="@string/units_km"
+                    tools:ignore="RtlSymmetry" />
 
-            <TextView
+                <Space
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:ignore="InefficientWeight" />
+            </LinearLayout>
 
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/path_loss" />
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/fspsPathLossEditText"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
+                <TextView
 
-                android:ems="10"
-                android:inputType="text"
-                android:enabled="false" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/path_loss"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <TextView
-                android:id="@+id/fsplPathLossUnitTextView"
-                android:layout_width="45dp"
-                android:layout_height="wrap_content"
-                android:paddingEnd="5dp"
-                android:text="@string/units_db"
-                tools:ignore="RtlSymmetry" />
+                <EditText
+                    android:id="@+id/fspsPathLossEditText"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
 
-            <Space
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="text"
+                    tools:ignore="Autofill,LabelFor" />
 
-                tools:ignore="InefficientWeight" />
+                <TextView
+                    android:id="@+id/fsplPathLossUnitTextView"
+                    android:layout_width="45dp"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="5dp"
+                    android:text="@string/units_db"
+                    tools:ignore="RtlSymmetry" />
+
+                <Space
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:ignore="InefficientWeight" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -218,5 +228,7 @@
                     android:text="@string/units_nautical_mile" />
             </RadioGroup>
         </LinearLayout>
+
     </LinearLayout>
+
 </LinearLayout>

@@ -15,12 +15,13 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="50dp"
-        android:hint="7175"
+        android:hint="@string/dipole_freq_hint_7175"
         android:imeOptions="actionNext"
         android:inputType="numberDecimal"
         android:nextFocusForward="@+id/editVel"
         android:selectAllOnFocus="true"
-        android:text="7175" />
+        android:text="@string/dipole_freq_hint_7175"
+        tools:ignore="Autofill" />
 
     <EditText
         android:id="@+id/editVel"
@@ -28,11 +29,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editFreq"
         android:layout_alignParentStart="true"
-        android:hint="0.95"
+        android:hint="@string/dipole_vel_hint_0_95"
         android:imeOptions="actionDone"
         android:inputType="numberDecimal"
         android:selectAllOnFocus="true"
-        android:text="0.95" />
+        android:text="@string/dipole_vel_hint_0_95"
+        tools:ignore="Autofill" />
 
     <EditText
         android:id="@+id/editLen"
@@ -42,7 +44,7 @@
         android:layout_alignParentStart="true"
         android:enabled="false"
         android:inputType="numberDecimal"
-        android:text="0"
+        android:text="@string/dipole_hint_0"
         android:textColor="@android:color/primary_text_light_nodisable" />
 
     <EditText
@@ -53,7 +55,7 @@
         android:layout_alignParentStart="true"
         android:enabled="false"
         android:inputType="numberDecimal"
-        android:text="0"
+        android:text="@string/dipole_hint_0"
         android:textColor="@android:color/primary_text_light_nodisable" />
 
     <TextView
@@ -63,7 +65,7 @@
         android:id="@+id/lowerText"
         android:layout_alignBottom="@+id/editFreq"
         android:layout_toEndOf="@+id/editFreq"
-        android:layout_marginLeft="23dp" />
+        android:layout_marginStart="23dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -97,6 +99,6 @@
         android:layout_alignParentStart="false"
         android:onClick="dipoleCalculateButtonClick"
         android:layout_alignTop="@+id/lowerText"
-        android:layout_toRightOf="@+id/atscupperText" />
+        android:layout_toEndOf="@+id/atscupperText" />
 
 </RelativeLayout>

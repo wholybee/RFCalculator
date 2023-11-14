@@ -48,7 +48,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:onClick="rootStartPathLoss"
-            android:text="@string/free_space_path_loss_calculator"
+            android:text="@string/action_path_loss"
             android:textAllCaps="false"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -74,7 +74,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:onClick="rootStartWavelength"
-            android:text="@string/wavelength_calc"
+            android:text="@string/action_wavelength"
             android:textAllCaps="false"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -84,7 +84,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:onClick="rootStartLos"
-            android:text="@string/line_of_sight_calculator"
+            android:text="@string/action_los"
             android:textAllCaps="false"
             android:textSize="16sp"
             android:textStyle="bold" />

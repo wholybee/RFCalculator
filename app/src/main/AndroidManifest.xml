@@ -8,7 +8,7 @@
         android:theme="@style/Theme.RFCalc">
         <activity
             android:name=".PathLossActivity"
-            android:label="@string/free_space_path_loss_calculator"
+            android:label="@string/title_activity_path_loss"
             android:parentActivityName=".MainActivity"
             android:exported="false" >
             <meta-data
@@ -19,7 +19,7 @@
         <activity
             android:name=".LosActivity"
             android:exported="false"
-            android:label="@string/line_of_sight_calculator"
+            android:label="@string/title_activity_los"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -28,7 +28,7 @@
         <activity
             android:name=".WavelengthActivity"
             android:exported="false"
-            android:label="@string/wavelength_calculator"
+            android:label="@string/title_activity_wavelength"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

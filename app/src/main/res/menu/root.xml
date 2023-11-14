@@ -23,18 +23,18 @@
         app:showAsAction="never" />
 
     <item android:id="@+id/action_wave"
-        android:title="@string/wavelength_calc"
+        android:title="@string/action_wavelength"
         android:orderInCategory="100"
         app:showAsAction="never" />
 
     <item android:id="@+id/action_los"
-        android:title="@string/line_of_sight_calculator"
+        android:title="@string/action_los"
         android:orderInCategory="100"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_pathloss"
         android:orderInCategory="100"
-        android:title="@string/free_space_path_loss_calculator"
+        android:title="@string/action_path_loss"
         app:showAsAction="never"/>
 
 </menu>

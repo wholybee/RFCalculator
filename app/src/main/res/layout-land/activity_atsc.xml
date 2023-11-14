@@ -14,10 +14,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="false"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/root_rfButton"
+        android:layout_toStartOf="@+id/root_rfButton"
         android:inputType="number"
         android:selectAllOnFocus="true"
-        android:text="19" />
+        android:text="@string/ATSC_19"
+        tools:ignore="Autofill" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -120,6 +121,7 @@
         android:layout_alignParentEnd="false"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_toEndOf="@+id/titleText" />
+        android:layout_toEndOf="@+id/titleText"
+        tools:ignore="ContentDescription" />
 
 </RelativeLayout>

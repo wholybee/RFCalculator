@@ -85,7 +85,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:onClick="dbCalcKeyPress"
-                    android:text="@string/_7" />
+                    android:text="@string/_7"
+                    tools:ignore="ButtonStyle" />
 
                 <Button
                     android:id="@+id/eightButton"

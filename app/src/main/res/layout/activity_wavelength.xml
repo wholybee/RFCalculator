@@ -11,9 +11,10 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center|right"
+        android:gravity="center|end"
         android:orientation="vertical"
-        android:paddingTop="24dp">
+        android:paddingTop="24dp"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -35,7 +36,8 @@
                 android:ems="10"
                 android:imeOptions="actionDone"
                 android:inputType="numberDecimal"
-                android:selectAllOnFocus="true" />
+                android:selectAllOnFocus="true"
+                tools:ignore="Autofill,LabelFor" />
 
             <TextView
                 android:id="@+id/freq_unit_textView"
@@ -43,7 +45,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingEnd="5dp"
-                android:text="GHz" />
+                android:text="@string/units_ghz"
+                tools:ignore="RtlSymmetry" />
 
             <Button
                 android:id="@+id/freq_button"
@@ -74,7 +77,8 @@
                 android:ems="10"
                 android:imeOptions="actionDone"
                 android:inputType="numberDecimal"
-                android:selectAllOnFocus="true" />
+                android:selectAllOnFocus="true"
+                tools:ignore="Autofill,LabelFor" />
 
             <TextView
                 android:id="@+id/wave_unit_textView"
@@ -82,7 +86,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingEnd="5dp"
-                android:text="CM" />
+                android:text="@string/units_cm"
+                tools:ignore="RtlSymmetry" />
 
             <Button
                 android:id="@+id/button2"
@@ -103,13 +108,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingTop="32dp"
-                android:paddingEnd="48dp">
+                android:paddingEnd="48dp"
+                tools:ignore="RtlSymmetry">
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Frequency" />
+                    android:text="@string/wave_frequency" />
 
                 <RadioButton
                     android:id="@+id/hz_radioButton"
@@ -117,28 +123,28 @@
                     android:layout_height="wrap_content"
                     android:checked="false"
                     android:onClick="freqUnitChanged"
-                    android:text="Hz" />
+                    android:text="@string/units_hz" />
 
                 <RadioButton
                     android:id="@+id/kHz_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="freqUnitChanged"
-                    android:text="kHz" />
+                    android:text="@string/units_khz" />
 
                 <RadioButton
                     android:id="@+id/MHz_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="freqUnitChanged"
-                    android:text="MHz" />
+                    android:text="@string/units_mhz" />
 
                 <RadioButton
                     android:id="@+id/GHz_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="freqUnitChanged"
-                    android:text="GHz" />
+                    android:text="@string/units_ghz" />
 
             </RadioGroup>
 
@@ -146,41 +152,42 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingTop="32dp"
-                android:paddingEnd="2dp">
+                android:paddingEnd="2dp"
+                tools:ignore="RtlSymmetry">
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Wavelength" />
+                    android:text="@string/wave_wavelength" />
 
                 <RadioButton
                     android:id="@+id/mm_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="wavelengthUnitChanged"
-                    android:text="mm" />
+                    android:text="@string/units_mm" />
 
                 <RadioButton
                     android:id="@+id/cm_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="wavelengthUnitChanged"
-                    android:text="centimeter" />
+                    android:text="@string/units_centimeter" />
 
                 <RadioButton
                     android:id="@+id/meter_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="wavelengthUnitChanged"
-                    android:text="meter" />
+                    android:text="@string/units_meter" />
 
                 <RadioButton
                     android:id="@+id/kilometer_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="wavelengthUnitChanged"
-                    android:text="kilometer" />
+                    android:text="@string/units_kilometer" />
             </RadioGroup>
 
         </LinearLayout>

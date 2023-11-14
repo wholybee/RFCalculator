@@ -1,5 +1,7 @@
 package net.holybee.rfcalculator;
 
+import android.util.Log;
+
 import androidx.lifecycle.ViewModel;
 
 import java.math.BigDecimal;
@@ -17,34 +19,38 @@ public class PathLossViewModel extends ViewModel {
     public static final int MILE = 2;
     public static final int NAUTICALMILE = 3;
 
-    public int frequencyUnit = KILOHERTZ;
+    public int frequencyUnit = MEGAHERTZ;
     public int distanceUnit = KILOMETER;
 
     private BigDecimal frequencyHz = new BigDecimal("0");
     private BigDecimal distanceKilo = new BigDecimal("0");
-
-    private final BigDecimal c = new BigDecimal("299792458");
     MathContext mContext = new MathContext(12);
+    private final BigDecimal c = new BigDecimal("299792458");
+    private final BigDecimal pi = BigDecimalMath.pi(mContext);
+
 
     public BigDecimal calculateLoss(BigDecimal frequency, BigDecimal distance){
         convertFrequencyToHz(frequency);
         convertDistanceToKm(distance);
+    Log.e("FSPL","kilo = " + distanceKilo.toPlainString());
+    Log.e("FSPL", "freq = " + frequencyHz.toPlainString());
 
-    BigDecimal fspl = new BigDecimal("20")
-            .multiply(BigDecimalMath.log10(distanceKilo,mContext),mContext)
-            .add(
-                    new BigDecimal("20")
-                            .multiply(BigDecimalMath.log10(frequencyHz,mContext),mContext)
-            ).add(
-                    new BigDecimal("20")
-                            .multiply(BigDecimalMath.log10(
-                                    new BigDecimal("4")
-                                            .multiply(BigDecimalMath.pi(mContext),mContext)
-                                            .divide(c,RoundingMode.HALF_UP),mContext
-                            ),mContext)
-            );
+    BigDecimal log10d = BigDecimalMath.log10(distanceKilo.multiply(new BigDecimal("1000")),mContext);
 
-        return convertDistanceToUser (fspl)
+    Log.e("FSPL","log10d = " + log10d.toPlainString());
+
+    BigDecimal log10f = BigDecimalMath.log10(frequencyHz,mContext);
+    BigDecimal pi4overc = new BigDecimal("4").multiply(pi).divide(c,mContext);
+    BigDecimal log104pioverc = BigDecimalMath.log10(pi4overc,mContext);
+
+    BigDecimal fspl2 = (new BigDecimal("20").multiply(log10d,mContext))
+            .add(new BigDecimal("20").multiply(log10f),mContext)
+            .add(new BigDecimal("20").multiply(log104pioverc),mContext);
+
+
+
+
+        return fspl2
                 .setScale(2,RoundingMode.HALF_UP);
     }
 
@@ -86,9 +92,11 @@ public class PathLossViewModel extends ViewModel {
             }
             case MILE: {
                 distanceKilo = distance.multiply(new BigDecimal("1.609344"),mContext);
+                break;
             }
             case NAUTICALMILE: {
                 distanceKilo = distance.multiply(new BigDecimal("1.852"),mContext);
+                break;
             }
         }
     }

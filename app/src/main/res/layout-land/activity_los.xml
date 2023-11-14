@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,9 +10,10 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center|right"
+        android:gravity="center|end"
         android:orientation="vertical"
-        android:paddingTop="24dp">
+        android:paddingTop="24dp"
+        >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -24,7 +24,7 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Antenna Height"
+                android:text="@string/antenna_height"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <EditText
@@ -35,14 +35,16 @@
                 android:ems="10"
                 android:imeOptions="actionDone"
                 android:inputType="number|numberDecimal"
-                android:text="" />
+                android:text=""
+                tools:ignore="Autofill,LabelFor" />
 
             <TextView
                 android:id="@+id/losHeightUnitTextView"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
                 android:paddingEnd="5dp"
-                android:text="m" />
+                android:text="@string/units_m"
+                tools:ignore="RtlSymmetry" />
 
             <Button
                 android:id="@+id/losCalculateButton"
@@ -62,7 +64,7 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="LOS Distance"
+                android:text="@string/los_distance"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <EditText
@@ -72,19 +74,22 @@
 
                 android:ems="10"
                 android:enabled="false"
-                android:inputType="text" />
+                android:inputType="text"
+                tools:ignore="Autofill,LabelFor" />
 
             <TextView
                 android:id="@+id/losDistanceUnitTextView"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
                 android:paddingEnd="5dp"
-                android:text="km" />
+                android:text="@string/units_km"
+                tools:ignore="RtlSymmetry" />
 
             <Space
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+
+                tools:ignore="InefficientWeight" />
         </LinearLayout>
 
         <LinearLayout
@@ -97,7 +102,7 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Radio Horizon"
+                android:text="@string/los_radio_horizon"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <EditText
@@ -107,7 +112,8 @@
 
                 android:ems="10"
                 android:enabled="false"
-                android:inputType="text" />
+                android:inputType="text"
+                tools:ignore="Autofill,LabelFor" />
 
             <TextView
                 android:id="@+id/losRadioUnitTextView"
@@ -115,7 +121,8 @@
                 android:layout_height="wrap_content"
                 android:paddingEnd="5dp"
 
-                android:text="km" />
+                android:text="@string/units_km"
+                tools:ignore="RtlSymmetry" />
 
             <Space
                 android:layout_width="110dp"
@@ -135,20 +142,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
 
             <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingTop="32dp"
-                android:paddingEnd="48dp">
+                android:paddingEnd="48dp"
+                tools:ignore="RtlSymmetry">
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Height" />
+                    android:text="@string/los_height" />
 
                 <RadioButton
                     android:id="@+id/los_meter_radioButton"
@@ -156,14 +165,14 @@
                     android:layout_height="wrap_content"
                     android:checked="false"
                     android:onClick="heightUnitChanged"
-                    android:text="meter" />
+                    android:text="@string/units_meter" />
 
                 <RadioButton
                     android:id="@+id/los_feet_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="heightUnitChanged"
-                    android:text="feet" />
+                    android:text="@string/units_feet" />
 
             </RadioGroup>
 
@@ -171,42 +180,43 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingTop="32dp"
-                android:paddingEnd="2dp">
+                android:paddingEnd="2dp"
+                tools:ignore="RtlSymmetry">
 
                 <TextView
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Distance" />
+                    android:text="@string/los_distance" />
 
                 <RadioButton
                     android:id="@+id/los_distance_meter_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="distanceUnitChanged"
-                    android:text="meter" />
+                    android:text="@string/units_meter" />
 
                 <RadioButton
                     android:id="@+id/los_distance_km_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="distanceUnitChanged"
-                    android:text="kilometer" />
+                    android:text="@string/units_kilometer" />
 
                 <RadioButton
                     android:id="@+id/los_distance_mile_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="distanceUnitChanged"
-                    android:text="mile" />
+                    android:text="@string/units_mile" />
 
                 <RadioButton
                     android:id="@+id/los_distance_nautical_mile_radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="distanceUnitChanged"
-                    android:text="nautical mile" />
+                    android:text="@string/units_nautical_mile" />
             </RadioGroup>
 
         </LinearLayout>

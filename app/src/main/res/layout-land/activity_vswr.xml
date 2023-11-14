@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingTop="32dp">
+        android:paddingTop="32dp"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -45,7 +46,8 @@
                     android:hint="@string/vswr_VSWR"
                     android:imeOptions="actionDone"
                     android:inputType="numberDecimal"
-                    android:selectAllOnFocus="true" />
+                    android:selectAllOnFocus="true"
+                    tools:ignore="Autofill" />
 
 
                 <Button
@@ -79,7 +81,8 @@
                     android:hint="@string/vswr_rl"
                     android:imeOptions="actionDone"
                     android:inputType="numberDecimal|numberSigned"
-                    android:selectAllOnFocus="true" />
+                    android:selectAllOnFocus="true"
+                    tools:ignore="Autofill" />
 
                 <Button
                     android:id="@+id/vswr_rlButton"
@@ -115,7 +118,8 @@
                     android:hint="@string/vswr_rc"
                     android:imeOptions="actionDone"
                     android:inputType="numberDecimal|numberSigned"
-                    android:selectAllOnFocus="true" />
+                    android:selectAllOnFocus="true"
+                    tools:ignore="Autofill" />
 
                 <Button
                     android:id="@+id/vswr_rcButton"
@@ -156,7 +160,8 @@
                     android:imeOptions="actionNext"
                     android:inputType="numberDecimal|numberSigned"
                     android:nextFocusForward="@+id/vswr_reversePowerText"
-                    android:selectAllOnFocus="true" />
+                    android:selectAllOnFocus="true"
+                    tools:ignore="Autofill" />
 
                 <Button
                     android:id="@+id/vswr_powerButton"
@@ -188,7 +193,8 @@
                     android:hint="@string/rev_pwr"
                     android:imeOptions="actionDone"
                     android:inputType="numberDecimal|numberSigned"
-                    android:selectAllOnFocus="true" />
+                    android:selectAllOnFocus="true"
+                    tools:ignore="Autofill,RtlHardcoded" />
 
             </LinearLayout>
 
