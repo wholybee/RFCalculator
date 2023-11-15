@@ -124,8 +124,8 @@ public class LosActivity extends AppCompatActivity {
             losDistanceEditText.setText(String.valueOf(losDistance));
             radioDistanceEditText.setText(String.valueOf(radioDistance));
 
-        } catch (Exception e) {
-            showToast("Invalid Number Entered.\n(Division by zero?)");
+        } catch (Exception ignored) {
+
         }
     }
 

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class WavelengthActivity extends AppCompatActivity {
     private final String TAG = "Wavelength";
@@ -121,9 +122,8 @@ public class WavelengthActivity extends AppCompatActivity {
             BigDecimal frequency = new BigDecimal(freqEditText.getText().toString());
             BigDecimal wavelength = mViewModel.calculateWavelength(frequency);
             waveEditText.setText(String.valueOf(wavelength));
-        } catch (Exception e) {
-            Log.e(TAG,e.getMessage());
-            showToast("Invalid Number Entered.\n(Division by zero?)");
+        } catch (Exception ignored) {
+
         }
     }
 
@@ -134,8 +134,8 @@ public class WavelengthActivity extends AppCompatActivity {
             BigDecimal wavelength = new BigDecimal(waveEditText.getText().toString());
             BigDecimal frequency = mViewModel.calculateFrequency(wavelength);
             freqEditText.setText(String.valueOf(frequency));
-        } catch (Exception e) {
-            showToast("Invalid Number Entered.\n(Division by zero?)");
+        } catch (Exception ignored) {
+
         }
     }
 
